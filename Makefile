@@ -54,19 +54,6 @@ endif
 	cp -v --parents    libs/juce/source/modules/juce_audio_plugin_client/utility/juce_PluginUtilities.cpp $(DESTDIR)$(SRCDIR)/distrho/
 
 # -----------------------------------------
-# gen
-
-gen: gen_lv2 gen_vst
-
-gen_lv2:
-	$(MAKE) -C libs/lv2-ttl-generator
-	@./scripts/generate-cabbage-lv2.sh
-	@./scripts/generate-ttl.sh
-
-gen_vst:
-	@./scripts/generate-cabbage-vst.sh
-
-# -----------------------------------------
 # clean
 
 clean:
