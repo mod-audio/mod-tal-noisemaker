@@ -711,6 +711,7 @@ public:
 
     void setOscBitcrusher(float value)
     {
+    value = 1 + (value * -1);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
