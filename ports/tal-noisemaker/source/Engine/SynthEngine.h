@@ -133,7 +133,7 @@ public:
 
 	void setNumberOfVoices(int numberOfVoices)
 	{
-		std::cout << "numberOfVoices in setNumber = " << numberOfVoices << std::endl;
+		//std::cout << "numberOfVoices in setNumber = " << numberOfVoices << std::endl;
 		this->voiceManager->setNumberOfVoices(numberOfVoices);
 	}
 
@@ -204,9 +204,9 @@ public:
 		}
 	}
 
-	void setOsc1Tune(float value)
+	void setOsc1Tune(int value)
 	{
-		value = audioUtils.getOscTuneValue(value);
+		//value = audioUtils.getOscTuneValue(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -214,9 +214,9 @@ public:
 		}
 	}
 
-	void setOsc2Tune(float value)
+	void setOsc2Tune(int value)
 	{
-		value = audioUtils.getOscTuneValue(value);
+		//value = audioUtils.getOscTuneValue(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -226,7 +226,7 @@ public:
 
 	void setOsc1FineTune(float value)
 	{
-		value = audioUtils.getOscFineTuneValue(value);
+		//value = audioUtils.getOscFineTuneValue(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -236,7 +236,7 @@ public:
 
 	void setOsc2FineTune(float value)
 	{
-		value = audioUtils.getOscFineTuneValue(value);
+		//value = audioUtils.getOscFineTuneValue(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -661,7 +661,7 @@ public:
 			lfoHandler2->setDestination(LfoHandler2::LFO1RATE);
 			break;
 		case 8:
-            lfoHandler2->setDestination(LfoHandler2::OSC12PITCH);
+      lfoHandler2->setDestination(LfoHandler2::OSC12PITCH);
 			break;
 		}
 	}
