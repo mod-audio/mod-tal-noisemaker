@@ -77,9 +77,7 @@ class TalPreset
 
         programData[FREEADDESTINATION] = 1.0f;
 
-        programData[OSCBITCRUSHER] = 1.0f;
-        programData[TAB1OPEN] = 1.0f;
-        programData[TAB2OPEN] = 1.0f;
+        programData[OSCBITCRUSHER] = 0.0f;
 
 		// Init default midiMap
 		for (int i = 0; i < 256; i++)

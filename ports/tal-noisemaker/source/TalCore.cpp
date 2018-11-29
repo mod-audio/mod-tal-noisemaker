@@ -267,15 +267,6 @@ void TalCore::setParameter (int index, float newValue)
         case PITCHWHEELPITCH:
             engine->setPitchwheelPitch(newValue);
             break;
-        case HIGHPASS:
-            engine->setHighPass(newValue);
-            break;
-        case DETUNE:
-            engine->setDetune(newValue);
-            break;
-        case VINTAGENOISE:
-            engine->setVintageNoise(newValue);
-            break;
         case OSCMASTERTUNE:
             engine->setMastertune(newValue);
             break;
@@ -290,18 +281,6 @@ void TalCore::setParameter (int index, float newValue)
             break;
         case FILTERTYPE:
             engine->setFiltertype(newValue);
-            break;
-        case FILTERDRIVE:
-            engine->setFilterDrive(newValue);
-            break;
-        case TAB1OPEN:
-        case TAB2OPEN:
-        case TAB3OPEN:
-        case TAB4OPEN:
-            for (int i = 0; i < this->numPrograms; i++)
-            {
-                talPresets[i]->programData[index] = newValue;
-            }
             break;
         }
 
@@ -379,16 +358,11 @@ const String TalCore::getParameterName (int index)
     case VELOCITYCUTOFF: return "velocitycutoff";
     case PITCHWHEELCUTOFF: return "pitchwheelcutoff";
     case PITCHWHEELPITCH: return "pitchwheelpitch";
-    case HIGHPASS: return "highpass";
-    case DETUNE: return "detune";
     case RINGMODULATION: return "ringmodulation";
 
 
     case OSCBITCRUSHER: return "oscbitcrusher";
 
-    case VINTAGENOISE: return "vintagenoise";
-
-    case FILTERDRIVE: return "filterdrive";
     }
     return String();
 }
@@ -734,15 +708,7 @@ void TalCore::getXmlPrograms(XmlElement *programList, int programNumber)
         program->setAttribute ("velocitycutoff", talPresets[programNumber]->programData[VELOCITYCUTOFF]);
         program->setAttribute ("pitchwheelcutoff", talPresets[programNumber]->programData[PITCHWHEELCUTOFF]);
         program->setAttribute ("pitchwheelpitch", talPresets[programNumber]->programData[PITCHWHEELPITCH]);
-        program->setAttribute ("highpass", talPresets[programNumber]->programData[HIGHPASS]);
-        program->setAttribute ("detune", talPresets[programNumber]->programData[DETUNE]);
-        program->setAttribute ("vintagenoise", talPresets[programNumber]->programData[VINTAGENOISE]);
         program->setAttribute ("ringmodulation", talPresets[programNumber]->programData[RINGMODULATION]);
-
-        program->setAttribute ("tab1open", talPresets[programNumber]->programData[TAB1OPEN]);
-        program->setAttribute ("tab2open", talPresets[programNumber]->programData[TAB2OPEN]);
-        program->setAttribute ("tab3open", talPresets[programNumber]->programData[TAB3OPEN]);
-        program->setAttribute ("tab4open", talPresets[programNumber]->programData[TAB4OPEN]);
 
         programList->addChildElement(program);
 }
@@ -820,20 +786,11 @@ void TalCore::setXmlPrograms(XmlElement* e, int programNumber, float version)
         talPresets[programNumber]->programData[VELOCITYCUTOFF] = (float) e->getDoubleAttribute ("velocitycutoff", 0.0f);
         talPresets[programNumber]->programData[PITCHWHEELCUTOFF] = (float) e->getDoubleAttribute ("pitchwheelcutoff", 0.0f);
         talPresets[programNumber]->programData[PITCHWHEELPITCH] = (float) e->getDoubleAttribute ("pitchwheelpitch", 0.0f);
-        talPresets[programNumber]->programData[HIGHPASS] = (float) e->getDoubleAttribute ("highpass", 0.0f);
-        talPresets[programNumber]->programData[DETUNE] = (float) e->getDoubleAttribute ("detune", 0.0f);
-        talPresets[programNumber]->programData[VINTAGENOISE] = (float) e->getDoubleAttribute ("vintagenoise", 0.0f);
-        talPresets[programNumber]->programData[FILTERDRIVE] = (float) e->getDoubleAttribute ("filterdrive", 0.0f);
 
         talPresets[programNumber]->programData[RINGMODULATION] = (float) e->getDoubleAttribute ("ringmodulation", 0.0f);
 
         talPresets[programNumber]->programData[OSCBITCRUSHER] = (float) e->getDoubleAttribute ("oscbitcrusher", 1.0f);
 
-
-        talPresets[programNumber]->programData[TAB1OPEN] = (float) e->getDoubleAttribute ("tab1open", 1.0f);
-        talPresets[programNumber]->programData[TAB2OPEN] = (float) e->getDoubleAttribute ("tab2open", 1.0f);
-        talPresets[programNumber]->programData[TAB3OPEN] = (float) e->getDoubleAttribute ("tab3open", 0.0f);
-        talPresets[programNumber]->programData[TAB4OPEN] = (float) e->getDoubleAttribute ("tab4open", 0.0f);
 
         // Preset compatibility
         if (version < 1.1f)
