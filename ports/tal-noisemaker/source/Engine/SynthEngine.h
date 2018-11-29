@@ -469,13 +469,13 @@ public:
 		}
 	}
 
-	void setFreeAdDestination(float value)
+	void setFreeAdDestination(int value)
 	{
-        int intValue = audioUtils.calcComboBoxValue(value, FREEADDESTINATION);
+        //int intValue = audioUtils.calcComboBoxValue(value, FREEADDESTINATION);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
-			voices[i]->setFreeAdDestination(intValue);
+			voices[i]->setFreeAdDestination(value);
 		}
 	}
 
