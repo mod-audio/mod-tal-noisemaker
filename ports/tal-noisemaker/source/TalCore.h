@@ -106,7 +106,7 @@ public:
     void getXmlPrograms(XmlElement *programList, int programNumber);
     void setXmlPrograms(XmlElement *programList, int programNumber, float version);
 
-    String getStateInformationString () override;
+   // String getStateInformationString () override;
     void setStateInformationString (const String& data) override;
 
 	void processMidiPerSample (MidiBuffer::Iterator *midiIterator, int samplePos);
