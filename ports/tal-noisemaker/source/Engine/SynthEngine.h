@@ -567,7 +567,8 @@ public:
 
 	void setMastertune(float value)
 	{
-        value = audioUtils.getLogScaledLinearValueCentered(value);
+    value = (value + 1) * 0.5;
+    value = audioUtils.getLogScaledLinearValueCentered(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -575,9 +576,10 @@ public:
 		}
 	}
 
-	void setTranspose(float value)
+	void setTranspose(int value)
 	{
-        int intValue = audioUtils.getTranspose(value);
+    int intValue = (value * 12) - 12;
+    //int intValue = audioUtils.getTranspose(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
