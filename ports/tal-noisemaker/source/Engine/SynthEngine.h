@@ -578,7 +578,7 @@ public:
 
 	void setTranspose(int value)
 	{
-    int intValue = (value * 12) - 12;
+    int intValue = value * 12;
     //int intValue = audioUtils.getTranspose(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
