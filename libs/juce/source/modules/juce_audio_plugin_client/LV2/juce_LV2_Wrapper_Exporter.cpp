@@ -365,21 +365,21 @@ static const String makePresetsFile (AudioProcessor* const filter)
 
         // State
 #if JucePlugin_WantsLV2State
-        preset += "    state:state [\n";
+        //preset += "    state:state [\n";
  #if JucePlugin_WantsLV2StateString
-        preset += "        <" JUCE_LV2_STATE_STRING_URI ">\n";
-        preset += "\"\"\"\n";
-        preset += filter->getStateInformationString().replace("\r\n","\n");
-        preset += "\"\"\"\n";
+       // preset += "        <" JUCE_LV2_STATE_STRING_URI ">\n";
+       // preset += "\"\"\"\n";
+       // preset += filter->getStateInformationString().replace("\r\n","\n");
+       // preset += "\"\"\"\n";
  #else
-        MemoryBlock chunkMemory;
-        filter->getCurrentProgramStateInformation(chunkMemory);
-        const String chunkString(Base64::toBase64(chunkMemory.getData(), chunkMemory.getSize()));
+       // MemoryBlock chunkMemory;
+       // filter->getCurrentProgramStateInformation(chunkMemory);
+       // const String chunkString(Base64::toBase64(chunkMemory.getData(), chunkMemory.getSize()));
 
-        preset += "        <" JUCE_LV2_STATE_BINARY_URI "> [\n";
-        preset += "            a atom:Chunk ;\n";
-        preset += "            rdf:value \"" + chunkString + "\"^^xsd:base64Binary ;\n";
-        preset += "        ] ;\n";
+       // preset += "        <" JUCE_LV2_STATE_BINARY_URI "> [\n";
+       // preset += "            a atom:Chunk ;\n";
+       // preset += "            rdf:value \"" + chunkString + "\"^^xsd:base64Binary ;\n";
+       // preset += "        ] ;\n";
  #endif
         if (filter->getNumParameters() == 0)
         {
