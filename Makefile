@@ -15,7 +15,7 @@ all:
 	$(MAKE) -C libs/juced
 	$(MAKE) -C libs/lv2-ttl-generator
 	$(MAKE) -C ports plugins
-	$(MAKE) gen
+	#$(MAKE) gen
 
 # -----------------------------------------
 # install
@@ -93,7 +93,7 @@ lv2:
 	$(MAKE) -C libs/juced
 	$(MAKE) -C libs/lv2-ttl-generator
 	$(MAKE) -C ports lv2
-	$(MAKE) gen_lv2
+	#$(MAKE) gen_lv2
 
 lv2_nogen:
 	$(MAKE) -C libs/drowaudio

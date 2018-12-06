@@ -325,9 +325,9 @@ void TalCore::setParameter (int index, float newValue)
             engine->setMastertune(newValue);
             std::cout << " OSCMASTERTUNE = " << OSCMASTERTUNE << " index = "<< index << " value = " << newValue << std::endl;
             break;
-        case TRANSPOSE:
-            engine->setTranspose(newValue);
-            std::cout << " TRANSPOSE = " << TRANSPOSE << " index = "<< index << " value = " << newValue << std::endl;
+        case OCTAVE:
+            engine->setOctave(newValue);
+            std::cout << " OCTAVE = " << OCTAVE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case RINGMODULATION:
             engine->setRingmodulation(newValue);
@@ -400,7 +400,7 @@ const String TalCore::getParameterName (int index)
     case OSC2FM: return "osc2fm";
     case OSC1PHASE: return "osc1phase";
     case OSC2PHASE: return "osc2phase";
-    case TRANSPOSE: return "transpose";
+    case OCTAVE: return "octave";
 
     case FREEADATTACK: return "freeadattack";
     case FREEADDECAY: return "freeaddecay";
@@ -750,7 +750,7 @@ void TalCore::getXmlPrograms(XmlElement *programList, int programNumber)
     //    program->setAttribute ("osc2fm", talPresets[programNumber]->programData[OSC2FM]);
     //    program->setAttribute ("osc1phase", talPresets[programNumber]->programData[OSC1PHASE]);
     //    program->setAttribute ("osc2phase", talPresets[programNumber]->programData[OSC2PHASE]);
-    //    program->setAttribute ("transpose", talPresets[programNumber]->programData[TRANSPOSE]);
+    //    program->setAttribute ("octave", talPresets[programNumber]->programData[OCTAVE]);
 
     //    program->setAttribute ("freeadattack", talPresets[programNumber]->programData[FREEADATTACK]);
     //    program->setAttribute ("freeaddecay", talPresets[programNumber]->programData[FREEADDECAY]);
@@ -828,7 +828,7 @@ void TalCore::setXmlPrograms(XmlElement* e, int programNumber, float version)
   //      talPresets[programNumber]->programData[OSC2FM] = (float) e->getDoubleAttribute ("osc2fm", 0.0f);
   //      talPresets[programNumber]->programData[OSC1PHASE] = (float) e->getDoubleAttribute ("osc1phase", 0.5f);
   //      talPresets[programNumber]->programData[OSC2PHASE] = (float) e->getDoubleAttribute ("osc2phase", 0.0f);
-  //      talPresets[programNumber]->programData[TRANSPOSE] = (float) e->getDoubleAttribute ("transpose", 0.5f);
+  //      talPresets[programNumber]->programData[OCTAVE] = (float) e->getDoubleAttribute ("octave", 0.5f);
 
   //      talPresets[programNumber]->programData[FREEADATTACK] = (float) e->getDoubleAttribute ("freeadattack", 0.0f);
   //      talPresets[programNumber]->programData[FREEADDECAY] = (float) e->getDoubleAttribute ("freeaddecay", 0.0f);

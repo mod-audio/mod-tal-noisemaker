@@ -258,18 +258,18 @@ public:
         return text;
     }
 
-    float getTranspose(float value)
+    float getOctave(float value)
     {
-        float transpose = 0.0f;
+        float octave = 0.0f;
         int valueInt = (int)(value * 3.00001f);
         switch (valueInt)
         {
-        case 0: transpose = -12.0f; break;
-        case 1: transpose = 0.0f; break;
-        case 2: transpose = 12.0f; break;
-        case 3: transpose = 24.0f; break;
+        case 0: octave = -12.0f; break;
+        case 1: octave = 0.0f; break;
+        case 2: octave = 12.0f; break;
+        case 3: octave = 24.0f; break;
         }
-        return transpose;
+        return octave;
     }
 
 	float getLogScaledFrequency(float inputValue)

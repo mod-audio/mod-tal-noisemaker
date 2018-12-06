@@ -73,7 +73,7 @@ class TalPreset
         programData[OSC1PW] = 0.5f;
 
         programData[OSC1PHASE] = 0.5f;
-        programData[TRANSPOSE] = 0.5f;
+        programData[OCTAVE] = 0.5f;
 
         programData[FREEADDESTINATION] = 1.0f;
 

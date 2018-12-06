@@ -50,7 +50,7 @@ private:
     float velocity;
 
     float mastertune;
-    float transpose;
+    float octave;
     float detuneFactor;
     float detune;
     float vintageNoise;
@@ -124,7 +124,7 @@ private:
     this->velocity = 1.0f;
 
     this->mastertune = 0.0f;
-    this->transpose = 0.0f;
+    this->octave = 0.0f;
 
     this->detuneFactor = 1.0f;
     this->detune = 0.0f;
@@ -475,9 +475,9 @@ public:
         this->mastertune = value;
 	}
 
-	void setTranspose(float value)
+	void setOctave(float value)
 	{
-        this->transpose = value;
+        this->octave = value;
 	}
 
     void setRingmodulation(float value)
@@ -509,7 +509,7 @@ public:
 			this->processFreeEnvelope();
 
 			float masterNote = this->portamento->tick((float)noteNumber, portamentoValue, portamentoMode > 0.5f);
-        	masterNote += this->pitchwheelHandler->getPitch() + this->mastertune + this->transpose;
+        	masterNote += this->pitchwheelHandler->getPitch() + this->mastertune + this->octave;
         	masterNote *= (this->detuneFactor * this->detune + 1.0f);
 	    	this->vco->process(&sample, masterNote);
 

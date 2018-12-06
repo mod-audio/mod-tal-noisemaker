@@ -576,14 +576,14 @@ public:
 		}
 	}
 
-	void setTranspose(int value)
+	void setOctave(int value)
 	{
     int intValue = value * 12;
-    //int intValue = audioUtils.getTranspose(value);
+    //int intValue = audioUtils.getOctave(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
-			voices[i]->setTranspose(intValue);
+			voices[i]->setOctave(intValue);
 		}
 	}
 
