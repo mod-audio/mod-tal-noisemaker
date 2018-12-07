@@ -461,7 +461,7 @@ public:
 
 	void setFreeAdAmount(float value)
 	{
-        value = audioUtils.getLogScaledValueCentered(value);
+    //value = audioUtils.getLogScaledValueCentered(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
