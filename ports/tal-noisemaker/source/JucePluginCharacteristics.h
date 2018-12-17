@@ -43,9 +43,9 @@
 #define JucePlugin_LV2URI                   "http://www.moddevices.com/plugins/mod_editions/tal-noisemaker"
 #define JucePlugin_LV2Category              "InstrumentPlugin"
 #define JucePlugin_WantsLV2Latency          0
-#define JucePlugin_WantsLV2Presets          0
-#define JucePlugin_WantsLV2State            0
-#define JucePlugin_WantsLV2StateString      0
+#define JucePlugin_WantsLV2Presets          1
+#define JucePlugin_WantsLV2State            1
+#define JucePlugin_WantsLV2StateString      1
 #define JucePlugin_WantsLV2TimePos          1
 
 #endif

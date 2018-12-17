@@ -366,13 +366,17 @@ public:
 		}
 	}
 
-	void setPortamentoMode(float value)
+	void setPortamentoMode(int value)
 	{
-        int intValue = audioUtils.calcComboBoxValue(value, PORTAMENTOMODE);
-		SynthVoice** voices = voiceManager->getAllVoices();
+    value = value + 1; 
+    //int intValue = audioUtils.calcComboBoxValue(value, PORTAMENTOMODE);
+    std::cout << "intvalue = " << value << std::endl;
+    
+    
+    SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
-			voices[i]->setPortamentoMode(intValue);
+			voices[i]->setPortamentoMode(value);
 		}
 	}
 

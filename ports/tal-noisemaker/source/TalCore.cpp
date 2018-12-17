@@ -111,235 +111,177 @@ void TalCore::setParameter (int index, float newValue)
         {
         case VOLUME:
             engine->setVolume(newValue);
-            std::cout << " VOLUME = " << VOLUME << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case CUTOFF:
             engine->setCutoff(newValue);
-            std::cout << " CUTOFF = " << CUTOFF << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case RESONANCE:
             engine->setResonance(newValue);
-            std::cout << " RESONANCE = " << RESONANCE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case FILTERCONTOUR:
             engine->setFilterContour(newValue);
-            std::cout << " FILTERCONTOUR = " << FILTERCONTOUR << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case KEYFOLLOW:
             engine->setKeyfollow(newValue);
-            std::cout << " KEYFOLLOW = " << KEYFOLLOW << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case FILTERATTACK:
             engine->setFilterAttack(newValue);
-            std::cout << " FILTERATTACK = " << FILTERATTACK << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case FILTERDECAY:
             engine->setFilterDecay(newValue);
-            std::cout << " FILTERDECAY = " << FILTERDECAY << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case FILTERSUSTAIN:
             engine->setFilterSustain(newValue);
-            std::cout << " FILTERSUSTAIN = " << FILTERSUSTAIN << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case FILTERRELEASE:
             engine->setFilterRelease(newValue);
-            std::cout << " FILTERRELEASE = " << FILTERRELEASE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case AMPATTACK:
             engine->setAmpAttack(newValue);
-            std::cout << " AMPATTACK = " << AMPATTACK << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case AMPDECAY:
             engine->setAmpDecay(newValue);
-            std::cout << " AMPDECAY = " << AMPDECAY << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case AMPSUSTAIN:
             engine->setAmpSustain(newValue);
-            std::cout << " AMPSUSTAIN = " << AMPSUSTAIN << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case AMPRELEASE:
             engine->setAmpRelease(newValue);
-            std::cout << " AMPRELEASE = " << AMPRELEASE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC1VOLUME:
             engine->setOsc1Volume(newValue);
-            std::cout << " OSC1VOLUME = " << OSC1VOLUME << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC2VOLUME:
             engine->setOsc2Volume(newValue);
-            std::cout << " OSC2VOLUME = " << OSC2VOLUME << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC3VOLUME:
             engine->setOsc3Volume(newValue);
-            std::cout << " OSC3VOLUME = " << OSC3VOLUME << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC1WAVEFORM:
             engine->setOsc1Waveform(newValue);
-            std::cout << " OSC1WAVEFORM = " << OSC1WAVEFORM << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC2WAVEFORM:
             engine->setOsc2Waveform(newValue);
-            std::cout << " OSC2WAVEFORM = " << OSC2WAVEFORM << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC1TUNE:
             engine->setOsc1Tune(newValue);
-            std::cout << " OSC1TUNE = " << OSC1TUNE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC2TUNE:
             engine->setOsc2Tune(newValue);
-            std::cout << " OSC2TUNE = " << OSC2TUNE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC1FINETUNE:
             engine->setOsc1FineTune(newValue);
-            std::cout << " OSC1FINETUNE = " << OSC1FINETUNE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC2FINETUNE:
             engine->setOsc2FineTune(newValue);
-            std::cout << " OSC2FINETUNE = " << OSC2FINETUNE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSCSYNC:
             engine->setOscSync(newValue > 0.0f);
-            std::cout << " OSCSYNC = " << OSCSYNC << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case PANIC:
             engine->setPanic();
-            std::cout << " PANIC = " << PANIC << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case PORTAMENTO:
             engine->setPortamento(newValue);
-            std::cout << " PORTAMENTO = " << PORTAMENTO << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case PORTAMENTOMODE:
             engine->setPortamentoMode(newValue);
-            std::cout << " PORTAMENTOMODE = " << PORTAMENTOMODE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO1RATE:
             engine->setLfo1Rate(newValue, this->bpm);
-            std::cout << " LFO1RATE = " << LFO1RATE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO2RATE:
             engine->setLfo2Rate(newValue, this->bpm);
-            std::cout << " LFO2RATE = " << LFO2RATE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO1AMOUNT:
             engine->setLfo1Amount(newValue);
-            std::cout << " LFO1AMOUNT = " << LFO1AMOUNT << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO2AMOUNT:
             engine->setLfo2Amount(newValue);
-            std::cout << " LFO2AMOUNT = " << LFO2AMOUNT << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO1WAVEFORM:
             engine->setLfo1Waveform(newValue);
-            std::cout << " LFO1WAVEFORM = " << LFO1WAVEFORM << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO2WAVEFORM:
             engine->setLfo2Waveform(newValue);
-            std::cout << " LFO2WAVEFORM = " << LFO2WAVEFORM << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO1DESTINATION:
             engine->setLfo1Destination(newValue);
-            std::cout << " LFO1DESTINATION = " << LFO1DESTINATION << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO2DESTINATION:
             engine->setLfo2Destination(newValue);
-            std::cout << " LFO2DESTINATION = " << LFO2DESTINATION << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC1PW:
             engine->setOsc1Pw(newValue);
-            std::cout << " OSC1PW = " << OSC1PW << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC1PHASE:
             engine->setOsc1Phase(newValue);
-            std::cout << " OSC1PHASE = " << OSC1PHASE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC2FM:
             engine->setOsc1Fm(newValue);
-            std::cout << " OSC2FM = " << OSC2FM << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSC2PHASE:
             engine->setOsc2Phase(newValue);
-            std::cout << " OSC2PHASE = " << OSC2PHASE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case FREEADATTACK:
             engine->setFreeAdAttack(newValue);
-            std::cout << " FREEADATTACK = " << FREEADATTACK << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case FREEADDECAY:
             engine->setFreeAdDecay(newValue);
-            std::cout << " FREEADDECAY = " << FREEADDECAY << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case FREEADAMOUNT:
             engine->setFreeAdAmount(newValue);
-            std::cout << " FREEADAMOUNT = " << FREEADAMOUNT << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case FREEADDESTINATION:
             engine->setFreeAdDestination(newValue);
-            std::cout << " FREEADDESTINATION = " << FREEADDESTINATION << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO1SYNC:
             engine->setLfo1Sync(newValue, getParameter(LFO1RATE), this->bpm);
-            std::cout << " LFO1SYNC = " << LFO1SYNC << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO1KEYTRIGGER:
             engine->setLfo1KeyTrigger(newValue);
-            std::cout << " LFO1KEYTRIGGER = " << LFO1KEYTRIGGER << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO1PHASE:
             engine->setLfo1Phase(newValue);
-            std::cout << " LFO1PHASE = " << LFO1PHASE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO2SYNC:
             engine->setLfo2Sync(newValue, getParameter(LFO2RATE), this->bpm);
-            std::cout << " LFO2SYNC = " << LFO2SYNC << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO2KEYTRIGGER:
             engine->setLfo2KeyTrigger(newValue);
-            std::cout << " LFO2KEYTRIGGER = " << LFO2KEYTRIGGER << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case LFO2PHASE:
             engine->setLfo2Phase(newValue);
-            std::cout << " LFO2PHASE = " << LFO2PHASE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case VELOCITYVOLUME:
             engine->setVelocityVolume(newValue);
-            std::cout << " VELOCITYVOLUME = " << VELOCITYVOLUME << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case VELOCITYCONTOUR:
             engine->setVelocityContour(newValue);
-            std::cout << " VELOCITYCONTOUR = " << VELOCITYCONTOUR << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case VELOCITYCUTOFF:
             engine->setVelocityCutoff(newValue);
-            std::cout << " VELOCITYCUTOFF = " << VELOCITYCUTOFF << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case PITCHWHEELCUTOFF:
             engine->setPitchwheelCutoff(newValue);
-            std::cout << " PITCHWHEELCUTOFF = " << PITCHWHEELCUTOFF << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case PITCHWHEELPITCH:
             engine->setPitchwheelPitch(newValue);
-            std::cout << " PITCHWHEELPITCH = " << PITCHWHEELPITCH << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSCMASTERTUNE:
             engine->setMastertune(newValue);
-            std::cout << " OSCMASTERTUNE = " << OSCMASTERTUNE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OCTAVE:
             engine->setOctave(newValue);
-            std::cout << " OCTAVE = " << OCTAVE << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case RINGMODULATION:
             engine->setRingmodulation(newValue);
-            std::cout << " RINGMODULATION = " << RINGMODULATION << " index = "<< index << " value = " << newValue << std::endl;
             break;
         case OSCBITCRUSHER:
             engine->setOscBitcrusher(newValue);
-            std::cout << " OSCBITCRUSHER = " <<  OSCBITCRUSHER << " index = " << index << " value = " << newValue << std::endl;
             break;
         case FILTERTYPE:
             engine->setFiltertype(newValue);
-            std::cout << " FILTERTYPE = " << FILTERTYPE  << " index = "<< index << " value = " << newValue << std::endl;
             break;
         }
 

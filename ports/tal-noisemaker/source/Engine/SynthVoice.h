@@ -370,9 +370,9 @@ public:
 		vco->setOscSync(value);
 	}
 
-	void setPortamentoMode(float value)
+	void setPortamentoMode(int value)
 	{
-		this->portamentoMode = (int)value;
+		this->portamentoMode = value;
 	}
 
 	void setPortamento(float value)
