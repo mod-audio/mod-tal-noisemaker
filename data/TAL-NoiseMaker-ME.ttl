@@ -60,7 +60,7 @@
         lv2:index 4 ;
         lv2:symbol "volume" ;
         lv2:name "volume" ;
-        lv2:default 0.408000 ;
+        lv2:default 0.15 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
     ] ,
