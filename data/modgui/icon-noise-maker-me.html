@@ -225,7 +225,31 @@
                 <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="{{symbol}}"></div>
             </div>
             {{/controls.58}}
-
+             {{#controls.50}}
+           <div class="mod-enumerated tal-noise-maker-{{symbol}}" mod-role="input-control-port" mod-port-symbol="{{symbol}}" mod-widget="custom-select">
+             <div class="mod-enumerated-select" mod-role="input-control-value" mod-port-symbol="{{symbol}}"></div>
+             <div class="mod-enumerated-list">
+               <div mod-role="enumeration-option" mod-port-value="0">Off</div>
+               <div mod-role="enumeration-option" mod-port-value="1">Auto</div>
+               <div mod-role="enumeration-option" mod-port-value="2">On</div>
+             </div>
+           </div>
+           {{/controls.50}}
+            {{#controls.51}}
+            <div class="mod-enumerated tal-noise-maker-{{symbol}}" mod-role="input-control-port" mod-port-symbol="{{symbol}}" mod-widget="custom-select">
+              <div class="mod-enumerated-select" mod-role="input-control-value" mod-port-symbol="{{symbol}}"></div>
+              <div class="mod-enumerated-list">
+                <div mod-role="enumeration-option" mod-port-value="1">1</div>
+                <div mod-role="enumeration-option" mod-port-value="2">2</div>
+                <div mod-role="enumeration-option" mod-port-value="3">3</div>
+                <div mod-role="enumeration-option" mod-port-value="4">4</div>
+              </div>
+            </div>
+            {{/controls.51}}
+          </div>
+        </div>
+        <div class="tal-noise-maker-filter">
+          <div class="mod-control-supgroup">
             {{#controls.2}}
             <div class="mod-enumerated tal-noise-maker-{{symbol}}" mod-role="input-control-port" mod-port-symbol="{{symbol}}" mod-widget="custom-select">
               <div class="mod-enumerated-select" mod-role="input-control-value" mod-port-symbol="{{symbol}}"></div>
@@ -243,23 +267,6 @@
               </div>
             </div>
             {{/controls.2}}
-            {{#controls.51}}
-            <div class="mod-enumerated tal-noise-maker-{{symbol}}" mod-role="input-control-port" mod-port-symbol="{{symbol}}" mod-widget="custom-select">
-              <div class="mod-enumerated-select" mod-role="input-control-value" mod-port-symbol="{{symbol}}"></div>
-              <div class="mod-enumerated-list">
-                <div mod-role="enumeration-option" mod-port-value="1">1</div>
-                <div mod-role="enumeration-option" mod-port-value="2">2</div>
-                <div mod-role="enumeration-option" mod-port-value="3">3</div>
-                <div mod-role="enumeration-option" mod-port-value="4">4</div>
-                <div mod-role="enumeration-option" mod-port-value="5">5</div>
-                <div mod-role="enumeration-option" mod-port-value="6">6</div>
-              </div>
-            </div>
-            {{/controls.51}}
-          </div>
-        </div>
-        <div class="tal-noise-maker-filter">
-          <div class="mod-control-supgroup">
             {{#controls.3}}
             <div class="mod-knob color tal-noise-maker-{{symbol}}" title="{{comment}}">
                 <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="{{symbol}}"></div>

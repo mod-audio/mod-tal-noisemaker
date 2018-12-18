@@ -172,8 +172,8 @@
             lv2:name "osc1phase" ;
         ] , [
             lv2:index 40 ;
-            lv2:symbol "transpose" ;
-            lv2:name "transpose" ;
+            lv2:symbol "octave" ;
+            lv2:name "octave" ;
         ] , [
             lv2:index 41 ;
             lv2:symbol "freeadattack" ;

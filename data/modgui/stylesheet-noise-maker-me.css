@@ -81,9 +81,14 @@
   left: 187px;
 }
 
-.tal-noise-maker{{{cns}}} .mod-enumerated.tal-noise-maker-filtertype {
+.tal-noise-maker{{{cns}}} .mod-enumerated.tal-noise-maker-portamentomode {
   top: 95px;
   left: 184px;
+}
+
+.tal-noise-maker{{{cns}}} .mod-enumerated.tal-noise-maker-filtertype {
+  top: -18px;
+  left: 58px;
 }
 
 .tal-noise-maker{{{cns}}} .mod-enumerated.tal-noise-maker-voices {
@@ -300,8 +305,7 @@
   left: 0;
 }
 
-.tal-noise-maker{{{cns}}} .mod-control-group .tal-noise-maker-master .mod-knob.tal-noise-maker-octave,
-.tal-noise-maker{{{cns}}} .mod-control-group .tal-noise-maker-master .mod-knob.tal-noise-maker-transpose {
+.tal-noise-maker{{{cns}}} .mod-control-group .tal-noise-maker-master .mod-knob.tal-noise-maker-octave {
   left: 61px;
   top: 138px;
 }
