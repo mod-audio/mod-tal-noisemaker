@@ -327,7 +327,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.59263402
 	] , [
 		lv2:symbol "oscmastertune" ;
-		pset:value 0.5
+		pset:value 0.0
 	] , [
 		lv2:symbol "oscsync" ;
 		pset:value 0.99330401
@@ -1750,7 +1750,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.015625
 	] , [
 		lv2:symbol "osc1tune" ;
-		pset:value 0.50334799
+		pset:value 0.0
 	] , [
 		lv2:symbol "osc1volume" ;
 		pset:value 0.84821397
@@ -1768,7 +1768,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.46093801
 	] , [
 		lv2:symbol "osc2tune" ;
-		pset:value 0.49776801
+		pset:value 0.0
 	] , [
 		lv2:symbol "osc2volume" ;
 		pset:value 0.94308001
@@ -1783,7 +1783,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 1.0
 	] , [
 		lv2:symbol "oscmastertune" ;
-		pset:value 0.5
+		pset:value 0.0
 	] , [
 		lv2:symbol "oscsync" ;
 		pset:value 0.69866103
@@ -2296,7 +2296,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.045759
 	] , [
 		lv2:symbol "osc1tune" ;
-		pset:value 0.50334799
+		pset:value 0.0
 	] , [
 		lv2:symbol "osc1volume" ;
 		pset:value 0.0
@@ -2314,7 +2314,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "osc2tune" ;
-		pset:value 0.49776801
+		pset:value 0.0
 	] , [
 		lv2:symbol "osc2volume" ;
 		pset:value 1.0
