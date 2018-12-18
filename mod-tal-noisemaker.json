@@ -1,0 +1,8 @@
+{
+  "bundles": [
+    { "name": "TAL-NoiseMaker-ME.lv2", "stable": true }
+  ],
+  "project": "mod-tal-noisemaker",
+  "developer": "TAL-Togu Audio Line",
+  "buildroot_pkg": "mod-tal-noisemaker"
+}
