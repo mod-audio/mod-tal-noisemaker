@@ -839,5 +839,29 @@
         lv2:maximum 1.0 ;
     ] ;
 
-    doap:name "Noise Maker - ME" ;
-    doap:maintainer [ foaf:name "TAL-Togu Audio Line" ] .
+    lv2:minorVersion 1;
+    lv2:microVersion 0;
+    doap:name "Noise Maker - ME";
+
+rdfs:comment """
+The TAL-NoiseMaker MOD Edition is a virtual analog synth based on the TAL-NoiseMaker. This version, designed with the MOD system in mind, features a completely reworked interface meant to improve quick access to important parameters and enhance usability.
+Suitable for a variety of sounds, ranging from slow pads to really fast envelopes, this synthesizer is a powerful and versatile tool for synthesis enthusiasts.
+The TAL-NoiseMaker MOD Edition comes ready to roll, loaded with original presets created by producer and DJ Jesse Siminski aka Heartthrob.
+
+Features:
+Modeled by TAL-Togu Audio Line
+Adapted & maintained by MOD Devices
+(*) 'Other product names modeled in this software are trademarks of their respective companies that do not endorse and are not associated or affiliated with MOD. TAL-NoiseMaker is a trademark or trade name of another manufacturer and was used merely to identify the product whose sound was reviewed in the creation of this product. All other trademarks are the property of their respective holders.’
+""";
+
+    doap:developer [
+        foaf:name "TAL-Togu Audio Line";
+        foaf:homepage <https://tal-software.com/>;
+        foaf:mbox <mailto:j.verheesen@hotmail.nl>;
+    ];
+
+    doap:maintainer [
+        foaf:name "MOD Devices";
+        foaf:homepage <http://moddevices.com>;
+        foaf:mbox <mailto:bram@moddevices.com>;
+    ].
