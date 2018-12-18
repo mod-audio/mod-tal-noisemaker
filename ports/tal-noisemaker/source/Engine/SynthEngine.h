@@ -133,7 +133,7 @@ public:
 
 	void setNumberOfVoices(int numberOfVoices)
 	{
-		std::cout << "numberOfVoices in setNumber = " << numberOfVoices << std::endl;
+		//std::cout << "numberOfVoices in setNumber = " << numberOfVoices << std::endl;
 		this->voiceManager->setNumberOfVoices(numberOfVoices);
 	}
 
@@ -204,9 +204,9 @@ public:
 		}
 	}
 
-	void setOsc1Tune(float value)
+	void setOsc1Tune(int value)
 	{
-		value = audioUtils.getOscTuneValue(value);
+		//value = audioUtils.getOscTuneValue(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -214,9 +214,9 @@ public:
 		}
 	}
 
-	void setOsc2Tune(float value)
+	void setOsc2Tune(int value)
 	{
-		value = audioUtils.getOscTuneValue(value);
+		//value = audioUtils.getOscTuneValue(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -226,7 +226,7 @@ public:
 
 	void setOsc1FineTune(float value)
 	{
-		value = audioUtils.getOscFineTuneValue(value);
+		//value = audioUtils.getOscFineTuneValue(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -236,7 +236,7 @@ public:
 
 	void setOsc2FineTune(float value)
 	{
-		value = audioUtils.getOscFineTuneValue(value);
+		//value = audioUtils.getOscFineTuneValue(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -366,13 +366,17 @@ public:
 		}
 	}
 
-	void setPortamentoMode(float value)
+	void setPortamentoMode(int value)
 	{
-        int intValue = audioUtils.calcComboBoxValue(value, PORTAMENTOMODE);
-		SynthVoice** voices = voiceManager->getAllVoices();
+    value = value + 1; 
+    //int intValue = audioUtils.calcComboBoxValue(value, PORTAMENTOMODE);
+    std::cout << "intvalue = " << value << std::endl;
+    
+    
+    SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
-			voices[i]->setPortamentoMode(intValue);
+			voices[i]->setPortamentoMode(value);
 		}
 	}
 
@@ -461,7 +465,7 @@ public:
 
 	void setFreeAdAmount(float value)
 	{
-        value = audioUtils.getLogScaledValueCentered(value);
+    //value = audioUtils.getLogScaledValueCentered(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -469,13 +473,13 @@ public:
 		}
 	}
 
-	void setFreeAdDestination(float value)
+	void setFreeAdDestination(int value)
 	{
-        int intValue = audioUtils.calcComboBoxValue(value, FREEADDESTINATION);
+        //int intValue = audioUtils.calcComboBoxValue(value, FREEADDESTINATION);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
-			voices[i]->setFreeAdDestination(intValue);
+			voices[i]->setFreeAdDestination(value);
 		}
 	}
 
@@ -567,7 +571,8 @@ public:
 
 	void setMastertune(float value)
 	{
-        value = audioUtils.getLogScaledLinearValueCentered(value);
+    value = (value + 1) * 0.5;
+    value = audioUtils.getLogScaledLinearValueCentered(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
@@ -575,13 +580,14 @@ public:
 		}
 	}
 
-	void setTranspose(float value)
+	void setOctave(int value)
 	{
-        int intValue = audioUtils.getTranspose(value);
+    int intValue = value * 12;
+    //int intValue = audioUtils.getOctave(value);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
-			voices[i]->setTranspose(intValue);
+			voices[i]->setOctave(intValue);
 		}
 	}
 
@@ -661,7 +667,7 @@ public:
 			lfoHandler2->setDestination(LfoHandler2::LFO1RATE);
 			break;
 		case 8:
-            lfoHandler2->setDestination(LfoHandler2::OSC12PITCH);
+      lfoHandler2->setDestination(LfoHandler2::OSC12PITCH);
 			break;
 		}
 	}
@@ -711,6 +717,7 @@ public:
 
     void setOscBitcrusher(float value)
     {
+    value = 1 + (value * -1);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{

@@ -62,8 +62,9 @@ TalCore::TalCore()
     curProgram = 0;
 
     // load factory presets
-    // ProgramChunk chunk;
-    // setStateInformationString(chunk.getXmlChunk());
+    //ProgramChunk chunk;
+    //setStateInformationString(chunk.getXmlChunk());
+    
     setCurrentProgram(curProgram);
 
     nextMidiMessage = new MidiMessage(0xF0);
@@ -267,20 +268,11 @@ void TalCore::setParameter (int index, float newValue)
         case PITCHWHEELPITCH:
             engine->setPitchwheelPitch(newValue);
             break;
-        case HIGHPASS:
-            engine->setHighPass(newValue);
-            break;
-        case DETUNE:
-            engine->setDetune(newValue);
-            break;
-        case VINTAGENOISE:
-            engine->setVintageNoise(newValue);
-            break;
         case OSCMASTERTUNE:
             engine->setMastertune(newValue);
             break;
-        case TRANSPOSE:
-            engine->setTranspose(newValue);
+        case OCTAVE:
+            engine->setOctave(newValue);
             break;
         case RINGMODULATION:
             engine->setRingmodulation(newValue);
@@ -290,18 +282,6 @@ void TalCore::setParameter (int index, float newValue)
             break;
         case FILTERTYPE:
             engine->setFiltertype(newValue);
-            break;
-        case FILTERDRIVE:
-            engine->setFilterDrive(newValue);
-            break;
-        case TAB1OPEN:
-        case TAB2OPEN:
-        case TAB3OPEN:
-        case TAB4OPEN:
-            for (int i = 0; i < this->numPrograms; i++)
-            {
-                talPresets[i]->programData[index] = newValue;
-            }
             break;
         }
 
@@ -362,7 +342,7 @@ const String TalCore::getParameterName (int index)
     case OSC2FM: return "osc2fm";
     case OSC1PHASE: return "osc1phase";
     case OSC2PHASE: return "osc2phase";
-    case TRANSPOSE: return "transpose";
+    case OCTAVE: return "octave";
 
     case FREEADATTACK: return "freeadattack";
     case FREEADDECAY: return "freeaddecay";
@@ -379,16 +359,11 @@ const String TalCore::getParameterName (int index)
     case VELOCITYCUTOFF: return "velocitycutoff";
     case PITCHWHEELCUTOFF: return "pitchwheelcutoff";
     case PITCHWHEELPITCH: return "pitchwheelpitch";
-    case HIGHPASS: return "highpass";
-    case DETUNE: return "detune";
     case RINGMODULATION: return "ringmodulation";
 
 
     case OSCBITCRUSHER: return "oscbitcrusher";
 
-    case VINTAGENOISE: return "vintagenoise";
-
-    case FILTERDRIVE: return "filterdrive";
     }
     return String();
 }
@@ -614,308 +589,291 @@ XmlElement* TalCore::getCurrentProgramStateInformationAsXml()
 
 void TalCore::setCurrentProgramStateInformation (const void* data, int sizeInBytes)
 {
-    XmlElement* const xmlState = getXmlFromBinary (data, sizeInBytes);
-    setStateInformationFromXml(xmlState);
+    //XmlElement* const xmlState = getXmlFromBinary (data, sizeInBytes);
+    //setStateInformationFromXml(xmlState);
 }
 
 void TalCore::setStateInformation (const void* data, int sizeInBytes)
 {
     // use this helper function to get the XML from this binary blob..
-    XmlElement* const xmlState = getXmlFromBinary (data, sizeInBytes);
+    //XmlElement* const xmlState = getXmlFromBinary (data, sizeInBytes);
 
     //File *file = new File("e:/presetsLoad.txt");
     //xmlState->writeToFile(*file, T("tal"));
 
-    setStateInformationFromXml(xmlState);
+    //setStateInformationFromXml(xmlState);
 }
 
 void TalCore::setStateInformationFromXml(XmlElement* xmlState)
 {
-    if (xmlState != 0 && xmlState->hasTagName("tal"))
-    {
-        float version = (float)xmlState->getDoubleAttribute ("version", 1);
+   // if (xmlState != 0 && xmlState->hasTagName("tal"))
+   // {
+   //     float version = (float)xmlState->getDoubleAttribute ("version", 1);
 
-        XmlElement* programs = xmlState->getFirstChildElement();
-        if (programs->hasTagName("programs"))
-        {
-            int programNumber = 0;
+   //     XmlElement* programs = xmlState->getFirstChildElement();
+   //     if (programs->hasTagName("programs"))
+   //     {
+   //         int programNumber = 0;
 
-            if (programs->getNumChildElements() != 1)
-            {
-                curProgram = (int)xmlState->getIntAttribute ("curprogram", 1);
+   //         if (programs->getNumChildElements() != 1)
+   //         {
+   //             curProgram = (int)xmlState->getIntAttribute ("curprogram", 1);
 
-                forEachXmlChildElement (*programs, e)
-                {
-                    this->setXmlPrograms(e, programNumber, version);
-                    programNumber++;
-                }
-            }
-            else
-            {
-                this->setXmlPrograms(programs->getFirstChildElement(), curProgram, version);
-            }
-        }
+   //             forEachXmlChildElement (*programs, e)
+   //             {
+   //                 this->setXmlPrograms(e, programNumber, version);
+   //                 programNumber++;
+   //             }
+   //         }
+   //         else
+   //         {
+   //             this->setXmlPrograms(programs->getFirstChildElement(), curProgram, version);
+   //         }
+   //     }
 
-        delete xmlState;
-        this->setCurrentProgram(curProgram);
-        this->sendChangeMessage ();
-    }
+   //     delete xmlState;
+   //     this->setCurrentProgram(curProgram);
+   //     this->sendChangeMessage ();
+   // }
 }
 
 void TalCore::getXmlPrograms(XmlElement *programList, int programNumber)
 {
-        XmlElement* program = new XmlElement ("program");
-        program->setAttribute ("programname", talPresets[programNumber]->name);
-        program->setAttribute ("volume", talPresets[programNumber]->programData[VOLUME]);
+    //    XmlElement* program = new XmlElement ("program");
+    //    program->setAttribute ("programname", talPresets[programNumber]->name);
+    //    program->setAttribute ("volume", talPresets[programNumber]->programData[VOLUME]);
 
-        program->setAttribute ("filtertype", talPresets[programNumber]->programData[FILTERTYPE]);
-        program->setAttribute ("cutoff", talPresets[programNumber]->programData[CUTOFF]);
-        program->setAttribute ("resonance", talPresets[programNumber]->programData[RESONANCE]);
-        program->setAttribute ("osc1volume", talPresets[programNumber]->programData[OSC1VOLUME]);
-        program->setAttribute ("osc2volume", talPresets[programNumber]->programData[OSC2VOLUME]);
-        program->setAttribute ("osc3volume", talPresets[programNumber]->programData[OSC3VOLUME]);
+    //    program->setAttribute ("filtertype", talPresets[programNumber]->programData[FILTERTYPE]);
+    //    program->setAttribute ("cutoff", talPresets[programNumber]->programData[CUTOFF]);
+    //    program->setAttribute ("resonance", talPresets[programNumber]->programData[RESONANCE]);
+    //    program->setAttribute ("osc1volume", talPresets[programNumber]->programData[OSC1VOLUME]);
+    //    program->setAttribute ("osc2volume", talPresets[programNumber]->programData[OSC2VOLUME]);
+    //    program->setAttribute ("osc3volume", talPresets[programNumber]->programData[OSC3VOLUME]);
 
-        program->setAttribute ("osc1waveform", talPresets[programNumber]->programData[OSC1WAVEFORM]);
-        program->setAttribute ("osc2waveform", talPresets[programNumber]->programData[OSC2WAVEFORM]);
+    //    program->setAttribute ("osc1waveform", talPresets[programNumber]->programData[OSC1WAVEFORM]);
+    //    program->setAttribute ("osc2waveform", talPresets[programNumber]->programData[OSC2WAVEFORM]);
 
-        program->setAttribute ("oscsync", talPresets[programNumber]->programData[OSCSYNC]);
+    //    program->setAttribute ("oscsync", talPresets[programNumber]->programData[OSCSYNC]);
 
-        program->setAttribute ("oscmastertune", talPresets[programNumber]->programData[OSCMASTERTUNE]);
-        program->setAttribute ("osc1tune", talPresets[programNumber]->programData[OSC1TUNE]);
-        program->setAttribute ("osc2tune", talPresets[programNumber]->programData[OSC2TUNE]);
-        program->setAttribute ("osc1finetune", talPresets[programNumber]->programData[OSC1FINETUNE]);
-        program->setAttribute ("osc2finetune", talPresets[programNumber]->programData[OSC2FINETUNE]);
-        program->setAttribute ("portamento", talPresets[programNumber]->programData[PORTAMENTO]);
+    //    program->setAttribute ("oscmastertune", talPresets[programNumber]->programData[OSCMASTERTUNE]);
+    //    program->setAttribute ("osc1tune", talPresets[programNumber]->programData[OSC1TUNE]);
+    //    program->setAttribute ("osc2tune", talPresets[programNumber]->programData[OSC2TUNE]);
+    //    program->setAttribute ("osc1finetune", talPresets[programNumber]->programData[OSC1FINETUNE]);
+    //    program->setAttribute ("osc2finetune", talPresets[programNumber]->programData[OSC2FINETUNE]);
+    //    program->setAttribute ("portamento", talPresets[programNumber]->programData[PORTAMENTO]);
 
-        program->setAttribute ("keyfollow", talPresets[programNumber]->programData[KEYFOLLOW]);
-        program->setAttribute ("filtercontour", talPresets[programNumber]->programData[FILTERCONTOUR]);
-        program->setAttribute ("filterattack", talPresets[programNumber]->programData[FILTERATTACK]);
-        program->setAttribute ("filterdecay", talPresets[programNumber]->programData[FILTERDECAY]);
-        program->setAttribute ("filtersustain", talPresets[programNumber]->programData[FILTERSUSTAIN]);
-        program->setAttribute ("filterrelease", talPresets[programNumber]->programData[FILTERRELEASE]);
+    //    program->setAttribute ("keyfollow", talPresets[programNumber]->programData[KEYFOLLOW]);
+    //    program->setAttribute ("filtercontour", talPresets[programNumber]->programData[FILTERCONTOUR]);
+    //    program->setAttribute ("filterattack", talPresets[programNumber]->programData[FILTERATTACK]);
+    //    program->setAttribute ("filterdecay", talPresets[programNumber]->programData[FILTERDECAY]);
+    //    program->setAttribute ("filtersustain", talPresets[programNumber]->programData[FILTERSUSTAIN]);
+    //    program->setAttribute ("filterrelease", talPresets[programNumber]->programData[FILTERRELEASE]);
 
-        program->setAttribute ("ampattack", talPresets[programNumber]->programData[AMPATTACK]);
-        program->setAttribute ("ampdecay", talPresets[programNumber]->programData[AMPDECAY]);
-        program->setAttribute ("ampsustain", talPresets[programNumber]->programData[AMPSUSTAIN]);
-        program->setAttribute ("amprelease", talPresets[programNumber]->programData[AMPRELEASE]);
+    //    program->setAttribute ("ampattack", talPresets[programNumber]->programData[AMPATTACK]);
+    //    program->setAttribute ("ampdecay", talPresets[programNumber]->programData[AMPDECAY]);
+    //    program->setAttribute ("ampsustain", talPresets[programNumber]->programData[AMPSUSTAIN]);
+    //    program->setAttribute ("amprelease", talPresets[programNumber]->programData[AMPRELEASE]);
 
-        program->setAttribute ("voices", talPresets[programNumber]->programData[VOICES]);
-        program->setAttribute ("portamentomode", talPresets[programNumber]->programData[PORTAMENTOMODE]);
+    //    program->setAttribute ("voices", talPresets[programNumber]->programData[VOICES]);
+    //    program->setAttribute ("portamentomode", talPresets[programNumber]->programData[PORTAMENTOMODE]);
 
-        program->setAttribute ("lfo1waveform", talPresets[programNumber]->programData[LFO1WAVEFORM]);
-        program->setAttribute ("lfo2waveform", talPresets[programNumber]->programData[LFO2WAVEFORM]);
-        program->setAttribute ("lfo1rate", talPresets[programNumber]->programData[LFO1RATE]);
-        program->setAttribute ("lfo2rate", talPresets[programNumber]->programData[LFO2RATE]);
-        program->setAttribute ("lfo1amount", talPresets[programNumber]->programData[LFO1AMOUNT]);
-        program->setAttribute ("lfo2amount", talPresets[programNumber]->programData[LFO2AMOUNT]);
-        program->setAttribute ("lfo1destination", talPresets[programNumber]->programData[LFO1DESTINATION]);
-        program->setAttribute ("lfo2destination", talPresets[programNumber]->programData[LFO2DESTINATION]);
-        program->setAttribute ("lfo1phase", talPresets[programNumber]->programData[LFO1PHASE]);
-        program->setAttribute ("lfo2phase", talPresets[programNumber]->programData[LFO2PHASE]);
+    //    program->setAttribute ("lfo1waveform", talPresets[programNumber]->programData[LFO1WAVEFORM]);
+    //    program->setAttribute ("lfo2waveform", talPresets[programNumber]->programData[LFO2WAVEFORM]);
+    //    program->setAttribute ("lfo1rate", talPresets[programNumber]->programData[LFO1RATE]);
+    //    program->setAttribute ("lfo2rate", talPresets[programNumber]->programData[LFO2RATE]);
+    //    program->setAttribute ("lfo1amount", talPresets[programNumber]->programData[LFO1AMOUNT]);
+    //    program->setAttribute ("lfo2amount", talPresets[programNumber]->programData[LFO2AMOUNT]);
+    //    program->setAttribute ("lfo1destination", talPresets[programNumber]->programData[LFO1DESTINATION]);
+    //    program->setAttribute ("lfo2destination", talPresets[programNumber]->programData[LFO2DESTINATION]);
+    //    program->setAttribute ("lfo1phase", talPresets[programNumber]->programData[LFO1PHASE]);
+    //    program->setAttribute ("lfo2phase", talPresets[programNumber]->programData[LFO2PHASE]);
 
-        program->setAttribute ("osc1pw", talPresets[programNumber]->programData[OSC1PW]);
-        program->setAttribute ("osc2fm", talPresets[programNumber]->programData[OSC2FM]);
-        program->setAttribute ("osc1phase", talPresets[programNumber]->programData[OSC1PHASE]);
-        program->setAttribute ("osc2phase", talPresets[programNumber]->programData[OSC2PHASE]);
-        program->setAttribute ("transpose", talPresets[programNumber]->programData[TRANSPOSE]);
+    //    program->setAttribute ("osc1pw", talPresets[programNumber]->programData[OSC1PW]);
+    //    program->setAttribute ("osc2fm", talPresets[programNumber]->programData[OSC2FM]);
+    //    program->setAttribute ("osc1phase", talPresets[programNumber]->programData[OSC1PHASE]);
+    //    program->setAttribute ("osc2phase", talPresets[programNumber]->programData[OSC2PHASE]);
+    //    program->setAttribute ("octave", talPresets[programNumber]->programData[OCTAVE]);
 
-        program->setAttribute ("freeadattack", talPresets[programNumber]->programData[FREEADATTACK]);
-        program->setAttribute ("freeaddecay", talPresets[programNumber]->programData[FREEADDECAY]);
-        program->setAttribute ("freeadamount", talPresets[programNumber]->programData[FREEADAMOUNT]);
-        program->setAttribute ("freeaddestination", talPresets[programNumber]->programData[FREEADDESTINATION]);
+    //    program->setAttribute ("freeadattack", talPresets[programNumber]->programData[FREEADATTACK]);
+    //    program->setAttribute ("freeaddecay", talPresets[programNumber]->programData[FREEADDECAY]);
+    //    program->setAttribute ("freeadamount", talPresets[programNumber]->programData[FREEADAMOUNT]);
+    //    program->setAttribute ("freeaddestination", talPresets[programNumber]->programData[FREEADDESTINATION]);
 
-        program->setAttribute ("lfo1sync", talPresets[programNumber]->programData[LFO1SYNC]);
-        program->setAttribute ("lfo1keytrigger", talPresets[programNumber]->programData[LFO1KEYTRIGGER]);
-        program->setAttribute ("lfo2sync", talPresets[programNumber]->programData[LFO2SYNC]);
-        program->setAttribute ("lfo2keytrigger", talPresets[programNumber]->programData[LFO2KEYTRIGGER]);
+    //    program->setAttribute ("lfo1sync", talPresets[programNumber]->programData[LFO1SYNC]);
+    //    program->setAttribute ("lfo1keytrigger", talPresets[programNumber]->programData[LFO1KEYTRIGGER]);
+    //    program->setAttribute ("lfo2sync", talPresets[programNumber]->programData[LFO2SYNC]);
+    //    program->setAttribute ("lfo2keytrigger", talPresets[programNumber]->programData[LFO2KEYTRIGGER]);
 
-        program->setAttribute ("velocityvolume", talPresets[programNumber]->programData[VELOCITYVOLUME]);
-        program->setAttribute ("velocitycontour", talPresets[programNumber]->programData[VELOCITYCONTOUR]);
-        program->setAttribute ("velocitycutoff", talPresets[programNumber]->programData[VELOCITYCUTOFF]);
-        program->setAttribute ("pitchwheelcutoff", talPresets[programNumber]->programData[PITCHWHEELCUTOFF]);
-        program->setAttribute ("pitchwheelpitch", talPresets[programNumber]->programData[PITCHWHEELPITCH]);
-        program->setAttribute ("highpass", talPresets[programNumber]->programData[HIGHPASS]);
-        program->setAttribute ("detune", talPresets[programNumber]->programData[DETUNE]);
-        program->setAttribute ("vintagenoise", talPresets[programNumber]->programData[VINTAGENOISE]);
-        program->setAttribute ("ringmodulation", talPresets[programNumber]->programData[RINGMODULATION]);
+    //    program->setAttribute ("velocityvolume", talPresets[programNumber]->programData[VELOCITYVOLUME]);
+    //    program->setAttribute ("velocitycontour", talPresets[programNumber]->programData[VELOCITYCONTOUR]);
+    //    program->setAttribute ("velocitycutoff", talPresets[programNumber]->programData[VELOCITYCUTOFF]);
+    //    program->setAttribute ("pitchwheelcutoff", talPresets[programNumber]->programData[PITCHWHEELCUTOFF]);
+    //    program->setAttribute ("pitchwheelpitch", talPresets[programNumber]->programData[PITCHWHEELPITCH]);
+    //    program->setAttribute ("ringmodulation", talPresets[programNumber]->programData[RINGMODULATION]);
 
-        program->setAttribute ("tab1open", talPresets[programNumber]->programData[TAB1OPEN]);
-        program->setAttribute ("tab2open", talPresets[programNumber]->programData[TAB2OPEN]);
-        program->setAttribute ("tab3open", talPresets[programNumber]->programData[TAB3OPEN]);
-        program->setAttribute ("tab4open", talPresets[programNumber]->programData[TAB4OPEN]);
-
-        programList->addChildElement(program);
+    //    programList->addChildElement(program);
 }
 
 void TalCore::setXmlPrograms(XmlElement* e, int programNumber, float version)
 {
-    if (e->hasTagName("program") && programNumber < this->numPrograms)
-    {
-        talPresets[programNumber]->name = e->getStringAttribute ("programname", "Not Saved" + String(programNumber));
-        talPresets[programNumber]->programData[VOLUME] = (float) e->getDoubleAttribute ("volume", 0.5f);
+  //  if (e->hasTagName("program") && programNumber < this->numPrograms)
+  //  {
+  //      talPresets[programNumber]->name = e->getStringAttribute ("programname", "Not Saved" + String(programNumber));
+  //      talPresets[programNumber]->programData[VOLUME] = (float) e->getDoubleAttribute ("volume", 0.5f);
 
-        talPresets[programNumber]->programData[FILTERTYPE] = (float) e->getDoubleAttribute ("filtertype", 1.0f);
-        talPresets[programNumber]->programData[CUTOFF] = (float) e->getDoubleAttribute ("cutoff", 1.0f);
-        talPresets[programNumber]->programData[RESONANCE] = (float) e->getDoubleAttribute ("resonance", 0.0f);
-        talPresets[programNumber]->programData[OSC1VOLUME] = (float) e->getDoubleAttribute ("osc1volume", 0.8f);
-        talPresets[programNumber]->programData[OSC2VOLUME] = (float) e->getDoubleAttribute ("osc2volume", 0.0f);
-        talPresets[programNumber]->programData[OSC3VOLUME] = (float) e->getDoubleAttribute ("osc3volume", 0.8f);
+  //      talPresets[programNumber]->programData[FILTERTYPE] = (float) e->getDoubleAttribute ("filtertype", 1.0f);
+  //      talPresets[programNumber]->programData[CUTOFF] = (float) e->getDoubleAttribute ("cutoff", 1.0f);
+  //      talPresets[programNumber]->programData[RESONANCE] = (float) e->getDoubleAttribute ("resonance", 0.0f);
+  //      talPresets[programNumber]->programData[OSC1VOLUME] = (float) e->getDoubleAttribute ("osc1volume", 0.8f);
+  //      talPresets[programNumber]->programData[OSC2VOLUME] = (float) e->getDoubleAttribute ("osc2volume", 0.0f);
+  //      talPresets[programNumber]->programData[OSC3VOLUME] = (float) e->getDoubleAttribute ("osc3volume", 0.8f);
 
-        talPresets[programNumber]->programData[OSC1WAVEFORM] = (float) e->getDoubleAttribute ("osc1waveform", 1.0f);
-        talPresets[programNumber]->programData[OSC2WAVEFORM] = (float) e->getDoubleAttribute ("osc2waveform", 1.0f);
+  //      talPresets[programNumber]->programData[OSC1WAVEFORM] = (float) e->getDoubleAttribute ("osc1waveform", 1.0f);
+  //      talPresets[programNumber]->programData[OSC2WAVEFORM] = (float) e->getDoubleAttribute ("osc2waveform", 1.0f);
 
-        talPresets[programNumber]->programData[OSCSYNC] = (float) e->getDoubleAttribute ("oscsync", 0.0f);
+  //      talPresets[programNumber]->programData[OSCSYNC] = (float) e->getDoubleAttribute ("oscsync", 0.0f);
 
-        talPresets[programNumber]->programData[OSCMASTERTUNE] = (float) e->getDoubleAttribute ("oscmastertune", 0.5f);
-        talPresets[programNumber]->programData[OSC1TUNE] = (float) e->getDoubleAttribute ("osc1tune", 0.25f);
-        talPresets[programNumber]->programData[OSC2TUNE] = (float) e->getDoubleAttribute ("osc2tune", 0.5f);
-        talPresets[programNumber]->programData[OSC1FINETUNE] = (float) e->getDoubleAttribute ("osc1finetune", 0.5f);
-        talPresets[programNumber]->programData[OSC2FINETUNE] = (float) e->getDoubleAttribute ("osc2finetune", 0.5f);
+  //      talPresets[programNumber]->programData[OSCMASTERTUNE] = (float) e->getDoubleAttribute ("oscmastertune", 0.5f);
+  //      talPresets[programNumber]->programData[OSC1TUNE] = (float) e->getDoubleAttribute ("osc1tune", 0.25f);
+  //      talPresets[programNumber]->programData[OSC2TUNE] = (float) e->getDoubleAttribute ("osc2tune", 0.5f);
+  //      talPresets[programNumber]->programData[OSC1FINETUNE] = (float) e->getDoubleAttribute ("osc1finetune", 0.5f);
+  //      talPresets[programNumber]->programData[OSC2FINETUNE] = (float) e->getDoubleAttribute ("osc2finetune", 0.5f);
 
-        talPresets[programNumber]->programData[KEYFOLLOW] = (float) e->getDoubleAttribute ("keyfollow", 0.0f);
-        talPresets[programNumber]->programData[FILTERCONTOUR] = (float) e->getDoubleAttribute ("filtercontour", 0.5f);
-        talPresets[programNumber]->programData[FILTERATTACK] = (float) e->getDoubleAttribute ("filterattack", 0.0f);
-        talPresets[programNumber]->programData[FILTERDECAY] = (float) e->getDoubleAttribute ("filterdecay", 0.0f);
-        talPresets[programNumber]->programData[FILTERSUSTAIN] = (float) e->getDoubleAttribute ("filtersustain", 1.0f);
-        talPresets[programNumber]->programData[FILTERRELEASE] = (float) e->getDoubleAttribute ("filterrelease", 0.0f);
+  //      talPresets[programNumber]->programData[KEYFOLLOW] = (float) e->getDoubleAttribute ("keyfollow", 0.0f);
+  //      talPresets[programNumber]->programData[FILTERCONTOUR] = (float) e->getDoubleAttribute ("filtercontour", 0.5f);
+  //      talPresets[programNumber]->programData[FILTERATTACK] = (float) e->getDoubleAttribute ("filterattack", 0.0f);
+  //      talPresets[programNumber]->programData[FILTERDECAY] = (float) e->getDoubleAttribute ("filterdecay", 0.0f);
+  //      talPresets[programNumber]->programData[FILTERSUSTAIN] = (float) e->getDoubleAttribute ("filtersustain", 1.0f);
+  //      talPresets[programNumber]->programData[FILTERRELEASE] = (float) e->getDoubleAttribute ("filterrelease", 0.0f);
 
-        talPresets[programNumber]->programData[AMPATTACK] = (float) e->getDoubleAttribute ("ampattack", 0.0f);
-        talPresets[programNumber]->programData[AMPDECAY] = (float) e->getDoubleAttribute ("ampdecay", 0.0f);
-        talPresets[programNumber]->programData[AMPSUSTAIN] = (float) e->getDoubleAttribute ("ampsustain", 1.0f);
-        talPresets[programNumber]->programData[AMPRELEASE] = (float) e->getDoubleAttribute ("amprelease", 0.0f);
+  //      talPresets[programNumber]->programData[AMPATTACK] = (float) e->getDoubleAttribute ("ampattack", 0.0f);
+  //      talPresets[programNumber]->programData[AMPDECAY] = (float) e->getDoubleAttribute ("ampdecay", 0.0f);
+  //      talPresets[programNumber]->programData[AMPSUSTAIN] = (float) e->getDoubleAttribute ("ampsustain", 1.0f);
+  //      talPresets[programNumber]->programData[AMPRELEASE] = (float) e->getDoubleAttribute ("amprelease", 0.0f);
 
-        talPresets[programNumber]->programData[VOICES] = (float) e->getDoubleAttribute ("voices", 1.0f);
-        talPresets[programNumber]->programData[PORTAMENTOMODE] = (float) e->getDoubleAttribute ("portamentomode", 1.0f);
-        talPresets[programNumber]->programData[PORTAMENTO] = (float) e->getDoubleAttribute ("portamento", 0.0f);
+  //      talPresets[programNumber]->programData[VOICES] = (float) e->getDoubleAttribute ("voices", 1.0f);
+  //      talPresets[programNumber]->programData[PORTAMENTOMODE] = (float) e->getDoubleAttribute ("portamentomode", 1.0f);
+  //      talPresets[programNumber]->programData[PORTAMENTO] = (float) e->getDoubleAttribute ("portamento", 0.0f);
 
-        talPresets[programNumber]->programData[LFO1WAVEFORM] = (float) e->getDoubleAttribute ("lfo1waveform", 0.0f);
-        talPresets[programNumber]->programData[LFO2WAVEFORM] = (float) e->getDoubleAttribute ("lfo2waveform", 0.0f);
-        talPresets[programNumber]->programData[LFO1RATE] = (float) e->getDoubleAttribute ("lfo1rate", 0.0f);
-        talPresets[programNumber]->programData[LFO2RATE] = (float) e->getDoubleAttribute ("lfo2rate", 0.0f);
-        talPresets[programNumber]->programData[LFO1AMOUNT] = (float) e->getDoubleAttribute ("lfo1amount", 0.5f);
-        talPresets[programNumber]->programData[LFO2AMOUNT] = (float) e->getDoubleAttribute ("lfo2amount", 0.5f);
-        talPresets[programNumber]->programData[LFO1DESTINATION] = (float) e->getDoubleAttribute ("lfo1destination", 1.0f);
-        talPresets[programNumber]->programData[LFO2DESTINATION] = (float) e->getDoubleAttribute ("lfo2destination", 1.0f);
-        talPresets[programNumber]->programData[LFO1PHASE] = (float) e->getDoubleAttribute ("lfo1phase", 0.0f);
-        talPresets[programNumber]->programData[LFO2PHASE] = (float) e->getDoubleAttribute ("lfo2phase", 0.0f);
+  //      talPresets[programNumber]->programData[LFO1WAVEFORM] = (float) e->getDoubleAttribute ("lfo1waveform", 0.0f);
+  //      talPresets[programNumber]->programData[LFO2WAVEFORM] = (float) e->getDoubleAttribute ("lfo2waveform", 0.0f);
+  //      talPresets[programNumber]->programData[LFO1RATE] = (float) e->getDoubleAttribute ("lfo1rate", 0.0f);
+  //      talPresets[programNumber]->programData[LFO2RATE] = (float) e->getDoubleAttribute ("lfo2rate", 0.0f);
+  //      talPresets[programNumber]->programData[LFO1AMOUNT] = (float) e->getDoubleAttribute ("lfo1amount", 0.5f);
+  //      talPresets[programNumber]->programData[LFO2AMOUNT] = (float) e->getDoubleAttribute ("lfo2amount", 0.5f);
+  //      talPresets[programNumber]->programData[LFO1DESTINATION] = (float) e->getDoubleAttribute ("lfo1destination", 1.0f);
+  //      talPresets[programNumber]->programData[LFO2DESTINATION] = (float) e->getDoubleAttribute ("lfo2destination", 1.0f);
+  //      talPresets[programNumber]->programData[LFO1PHASE] = (float) e->getDoubleAttribute ("lfo1phase", 0.0f);
+  //      talPresets[programNumber]->programData[LFO2PHASE] = (float) e->getDoubleAttribute ("lfo2phase", 0.0f);
 
-        talPresets[programNumber]->programData[OSC1PW] = (float) e->getDoubleAttribute ("osc1pw", 0.5f);
-        talPresets[programNumber]->programData[OSC2FM] = (float) e->getDoubleAttribute ("osc2fm", 0.0f);
-        talPresets[programNumber]->programData[OSC1PHASE] = (float) e->getDoubleAttribute ("osc1phase", 0.5f);
-        talPresets[programNumber]->programData[OSC2PHASE] = (float) e->getDoubleAttribute ("osc2phase", 0.0f);
-        talPresets[programNumber]->programData[TRANSPOSE] = (float) e->getDoubleAttribute ("transpose", 0.5f);
+  //      talPresets[programNumber]->programData[OSC1PW] = (float) e->getDoubleAttribute ("osc1pw", 0.5f);
+  //      talPresets[programNumber]->programData[OSC2FM] = (float) e->getDoubleAttribute ("osc2fm", 0.0f);
+  //      talPresets[programNumber]->programData[OSC1PHASE] = (float) e->getDoubleAttribute ("osc1phase", 0.5f);
+  //      talPresets[programNumber]->programData[OSC2PHASE] = (float) e->getDoubleAttribute ("osc2phase", 0.0f);
+  //      talPresets[programNumber]->programData[OCTAVE] = (float) e->getDoubleAttribute ("octave", 0.5f);
 
-        talPresets[programNumber]->programData[FREEADATTACK] = (float) e->getDoubleAttribute ("freeadattack", 0.0f);
-        talPresets[programNumber]->programData[FREEADDECAY] = (float) e->getDoubleAttribute ("freeaddecay", 0.0f);
-        talPresets[programNumber]->programData[FREEADAMOUNT] = (float) e->getDoubleAttribute ("freeadamount", 0.0f);
-        talPresets[programNumber]->programData[FREEADDESTINATION] = (float) e->getDoubleAttribute ("freeaddestination", 1.0f);
+  //      talPresets[programNumber]->programData[FREEADATTACK] = (float) e->getDoubleAttribute ("freeadattack", 0.0f);
+  //      talPresets[programNumber]->programData[FREEADDECAY] = (float) e->getDoubleAttribute ("freeaddecay", 0.0f);
+  //      talPresets[programNumber]->programData[FREEADAMOUNT] = (float) e->getDoubleAttribute ("freeadamount", 0.0f);
+  //      talPresets[programNumber]->programData[FREEADDESTINATION] = (float) e->getDoubleAttribute ("freeaddestination", 1.0f);
 
-        talPresets[programNumber]->programData[LFO1SYNC] = (float) e->getDoubleAttribute ("lfo1sync", 0.0f);
-        talPresets[programNumber]->programData[LFO1KEYTRIGGER] = (float) e->getDoubleAttribute ("lfo1keytrigger", 0.0f);
-        talPresets[programNumber]->programData[LFO2SYNC] = (float) e->getDoubleAttribute ("lfo2sync", 0.0f);
-        talPresets[programNumber]->programData[LFO2KEYTRIGGER] = (float) e->getDoubleAttribute ("lfo2keytrigger", 0.0f);
+  //      talPresets[programNumber]->programData[LFO1SYNC] = (float) e->getDoubleAttribute ("lfo1sync", 0.0f);
+  //      talPresets[programNumber]->programData[LFO1KEYTRIGGER] = (float) e->getDoubleAttribute ("lfo1keytrigger", 0.0f);
+  //      talPresets[programNumber]->programData[LFO2SYNC] = (float) e->getDoubleAttribute ("lfo2sync", 0.0f);
+  //      talPresets[programNumber]->programData[LFO2KEYTRIGGER] = (float) e->getDoubleAttribute ("lfo2keytrigger", 0.0f);
 
-        talPresets[programNumber]->programData[VELOCITYVOLUME] = (float) e->getDoubleAttribute ("velocityvolume", 0.0f);
-        talPresets[programNumber]->programData[VELOCITYCONTOUR] = (float) e->getDoubleAttribute ("velocitycontour", 0.0f);
-        talPresets[programNumber]->programData[VELOCITYCUTOFF] = (float) e->getDoubleAttribute ("velocitycutoff", 0.0f);
-        talPresets[programNumber]->programData[PITCHWHEELCUTOFF] = (float) e->getDoubleAttribute ("pitchwheelcutoff", 0.0f);
-        talPresets[programNumber]->programData[PITCHWHEELPITCH] = (float) e->getDoubleAttribute ("pitchwheelpitch", 0.0f);
-        talPresets[programNumber]->programData[HIGHPASS] = (float) e->getDoubleAttribute ("highpass", 0.0f);
-        talPresets[programNumber]->programData[DETUNE] = (float) e->getDoubleAttribute ("detune", 0.0f);
-        talPresets[programNumber]->programData[VINTAGENOISE] = (float) e->getDoubleAttribute ("vintagenoise", 0.0f);
-        talPresets[programNumber]->programData[FILTERDRIVE] = (float) e->getDoubleAttribute ("filterdrive", 0.0f);
+  //      talPresets[programNumber]->programData[VELOCITYVOLUME] = (float) e->getDoubleAttribute ("velocityvolume", 0.0f);
+  //      talPresets[programNumber]->programData[VELOCITYCONTOUR] = (float) e->getDoubleAttribute ("velocitycontour", 0.0f);
+  //      talPresets[programNumber]->programData[VELOCITYCUTOFF] = (float) e->getDoubleAttribute ("velocitycutoff", 0.0f);
+  //      talPresets[programNumber]->programData[PITCHWHEELCUTOFF] = (float) e->getDoubleAttribute ("pitchwheelcutoff", 0.0f);
+  //      talPresets[programNumber]->programData[PITCHWHEELPITCH] = (float) e->getDoubleAttribute ("pitchwheelpitch", 0.0f);
 
-        talPresets[programNumber]->programData[RINGMODULATION] = (float) e->getDoubleAttribute ("ringmodulation", 0.0f);
+  //      talPresets[programNumber]->programData[RINGMODULATION] = (float) e->getDoubleAttribute ("ringmodulation", 0.0f);
 
-        talPresets[programNumber]->programData[OSCBITCRUSHER] = (float) e->getDoubleAttribute ("oscbitcrusher", 1.0f);
+  //      talPresets[programNumber]->programData[OSCBITCRUSHER] = (float) e->getDoubleAttribute ("oscbitcrusher", 1.0f);
 
 
-        talPresets[programNumber]->programData[TAB1OPEN] = (float) e->getDoubleAttribute ("tab1open", 1.0f);
-        talPresets[programNumber]->programData[TAB2OPEN] = (float) e->getDoubleAttribute ("tab2open", 1.0f);
-        talPresets[programNumber]->programData[TAB3OPEN] = (float) e->getDoubleAttribute ("tab3open", 0.0f);
-        talPresets[programNumber]->programData[TAB4OPEN] = (float) e->getDoubleAttribute ("tab4open", 0.0f);
+  //      // Preset compatibility
+  //      if (version < 1.1f)
+  //      {
+  //          // make it compatibel to old version
+  //          float osc1Waveform = talPresets[programNumber]->programData[OSC1WAVEFORM];
+	//	    float valueSize = 1.0f / 2.0f - 0.001f;
+	//	    if (osc1Waveform < valueSize)
+	//	    {
+	//		    talPresets[programNumber]->programData[OSC1WAVEFORM] = 1;
+	//	    }
+	//	    else if (osc1Waveform < valueSize * 2.0f)
+	//	    {
+	//		    talPresets[programNumber]->programData[OSC1WAVEFORM] = 2;
+	//	    }
+	//	    else
+	//	    {
+	//		    talPresets[programNumber]->programData[OSC1WAVEFORM] = 3;
+	//	    }
 
-        // Preset compatibility
-        if (version < 1.1f)
-        {
-            // make it compatibel to old version
-            float osc1Waveform = talPresets[programNumber]->programData[OSC1WAVEFORM];
-		    float valueSize = 1.0f / 2.0f - 0.001f;
-		    if (osc1Waveform < valueSize)
-		    {
-			    talPresets[programNumber]->programData[OSC1WAVEFORM] = 1;
-		    }
-		    else if (osc1Waveform < valueSize * 2.0f)
-		    {
-			    talPresets[programNumber]->programData[OSC1WAVEFORM] = 2;
-		    }
-		    else
-		    {
-			    talPresets[programNumber]->programData[OSC1WAVEFORM] = 3;
-		    }
+  //          float osc2Waveform = talPresets[programNumber]->programData[OSC2WAVEFORM];
+	//	    valueSize = 1.0f / 3.0f - 0.001f;
+	//	    if (osc2Waveform < valueSize)
+	//	    {
+	//		    talPresets[programNumber]->programData[OSC2WAVEFORM] = 1;
+	//	    }
+	//	    else if (osc2Waveform < valueSize * 2.0f)
+	//	    {
+	//		    talPresets[programNumber]->programData[OSC2WAVEFORM] = 2;
+	//	    }
+	//	    else if (osc2Waveform < valueSize * 3.0f)
+	//	    {
+	//		    talPresets[programNumber]->programData[OSC2WAVEFORM] = 3;
+	//	    }
+	//	    else
+	//	    {
+	//		    talPresets[programNumber]->programData[OSC2WAVEFORM] = 4;
+	//	    }
+  //      }
 
-            float osc2Waveform = talPresets[programNumber]->programData[OSC2WAVEFORM];
-		    valueSize = 1.0f / 3.0f - 0.001f;
-		    if (osc2Waveform < valueSize)
-		    {
-			    talPresets[programNumber]->programData[OSC2WAVEFORM] = 1;
-		    }
-		    else if (osc2Waveform < valueSize * 2.0f)
-		    {
-			    talPresets[programNumber]->programData[OSC2WAVEFORM] = 2;
-		    }
-		    else if (osc2Waveform < valueSize * 3.0f)
-		    {
-			    talPresets[programNumber]->programData[OSC2WAVEFORM] = 3;
-		    }
-		    else
-		    {
-			    talPresets[programNumber]->programData[OSC2WAVEFORM] = 4;
-		    }
-        }
+  //      if (version < 1.6f)
+  //      {
+  //          talPresets[programNumber]->programData[VOICES] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[VOICES], VOICES);
+  //          talPresets[programNumber]->programData[PORTAMENTOMODE] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[PORTAMENTOMODE], PORTAMENTOMODE);
+  //          talPresets[programNumber]->programData[LFO1DESTINATION] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[LFO1DESTINATION], LFO1DESTINATION);
+  //          talPresets[programNumber]->programData[LFO2DESTINATION] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[LFO2DESTINATION], LFO2DESTINATION);
+  //          talPresets[programNumber]->programData[FREEADDESTINATION] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[FREEADDESTINATION], FREEADDESTINATION);
+  //          talPresets[programNumber]->programData[FILTERTYPE] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[FILTERTYPE], FILTERTYPE);
+  //          talPresets[programNumber]->programData[OSC1WAVEFORM] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[OSC1WAVEFORM], OSC1WAVEFORM);
+  //          talPresets[programNumber]->programData[OSC2WAVEFORM] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[OSC2WAVEFORM], OSC2WAVEFORM);
+  //      }
 
-        if (version < 1.6f)
-        {
-            talPresets[programNumber]->programData[VOICES] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[VOICES], VOICES);
-            talPresets[programNumber]->programData[PORTAMENTOMODE] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[PORTAMENTOMODE], PORTAMENTOMODE);
-            talPresets[programNumber]->programData[LFO1DESTINATION] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[LFO1DESTINATION], LFO1DESTINATION);
-            talPresets[programNumber]->programData[LFO2DESTINATION] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[LFO2DESTINATION], LFO2DESTINATION);
-            talPresets[programNumber]->programData[FREEADDESTINATION] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[FREEADDESTINATION], FREEADDESTINATION);
-            talPresets[programNumber]->programData[FILTERTYPE] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[FILTERTYPE], FILTERTYPE);
-            talPresets[programNumber]->programData[OSC1WAVEFORM] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[OSC1WAVEFORM], OSC1WAVEFORM);
-            talPresets[programNumber]->programData[OSC2WAVEFORM] = audioUtils.calcComboBoxValueNormalized(talPresets[programNumber]->programData[OSC2WAVEFORM], OSC2WAVEFORM);
-        }
-
-        if (version < 1.7f)
-        {
-            // 2 new filter types
-            int filtertypeOld = (int)floorf(talPresets[programNumber]->programData[FILTERTYPE] * (10 - 1.0f) + 1.0f + 0.5f);
-            talPresets[programNumber]->programData[FILTERTYPE] = audioUtils.calcComboBoxValueNormalized(filtertypeOld, FILTERTYPE);
-        }
-    }
+  //      if (version < 1.7f)
+  //      {
+  //          // 2 new filter types
+  //          int filtertypeOld = (int)floorf(talPresets[programNumber]->programData[FILTERTYPE] * (10 - 1.0f) + 1.0f + 0.5f);
+  //          talPresets[programNumber]->programData[FILTERTYPE] = audioUtils.calcComboBoxValueNormalized(filtertypeOld, FILTERTYPE);
+  //      }
+  //  }
 }
 
 void TalCore::setStateInformationString (const String& data)
 {
-    XmlElement* const xmlState = XmlDocument::parse(data);
-    setStateInformationFromXml(xmlState);
+  //  XmlElement* const xmlState = XmlDocument::parse(data);
+  //  setStateInformationFromXml(xmlState);
 }
 
-String TalCore::getStateInformationString ()
-{
-    // header
-    XmlElement tal("tal");
-    tal.setAttribute ("curprogram", curProgram);
-    tal.setAttribute ("version", 1.7);
-
-    // programs
-    XmlElement *programList = new XmlElement ("programs");
-
-    getXmlPrograms(programList, this->curProgram);
-    tal.addChildElement(programList);
-
-    return tal.createDocument (String());
-}
+//String TalCore::getStateInformationString ()
+//{
+//    // header
+//    XmlElement tal("tal");
+//    tal.setAttribute ("curprogram", curProgram);
+//    tal.setAttribute ("version", 1.7);
+//
+//    // programs
+//    XmlElement *programList = new XmlElement ("programs");
+//
+//    getXmlPrograms(programList, this->curProgram);
+//    tal.addChildElement(programList);
+//
+//    return tal.createDocument (String());
+//}
 
 int TalCore::getNumPrograms ()
 {

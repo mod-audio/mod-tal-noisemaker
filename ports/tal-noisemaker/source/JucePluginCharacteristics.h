@@ -40,7 +40,7 @@
 #define JucePlugin_RTASManufacturerCode     JucePlugin_ManufacturerCode
 #define JucePlugin_RTASProductId            JucePlugin_PluginCode
 
-#define JucePlugin_LV2URI                   "http://kunz.corrupt.ch/products/tal-noisemaker"
+#define JucePlugin_LV2URI                   "http://www.moddevices.com/plugins/mod_editions/tal-noisemaker"
 #define JucePlugin_LV2Category              "InstrumentPlugin"
 #define JucePlugin_WantsLV2Latency          0
 #define JucePlugin_WantsLV2Presets          1

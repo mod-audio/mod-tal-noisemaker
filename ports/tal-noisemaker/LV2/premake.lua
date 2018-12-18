@@ -1,7 +1,7 @@
 
 dofile("../../../scripts/make-project.lua")
 
-package = make_juce_lv2_project("TAL-NoiseMaker")
+package = make_juce_lv2_project("TAL-NoiseMaker-ME")
 
 package.includepaths = {
   package.includepaths,

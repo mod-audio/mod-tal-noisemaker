@@ -15,7 +15,7 @@ all:
 	$(MAKE) -C libs/juced
 	$(MAKE) -C libs/lv2-ttl-generator
 	$(MAKE) -C ports plugins
-	$(MAKE) gen
+	#$(MAKE) gen
 
 # -----------------------------------------
 # install
@@ -52,19 +52,6 @@ endif
 	cp -v --parents -r libs/juce/source/modules/juce_audio_plugin_client/LV2/*                            $(DESTDIR)$(SRCDIR)/distrho/
 	cp -v --parents    libs/juce/source/modules/juce_audio_plugin_client/VST/juce_VST_Wrapper.cpp         $(DESTDIR)$(SRCDIR)/distrho/
 	cp -v --parents    libs/juce/source/modules/juce_audio_plugin_client/utility/juce_PluginUtilities.cpp $(DESTDIR)$(SRCDIR)/distrho/
-
-# -----------------------------------------
-# gen
-
-gen: gen_lv2 gen_vst
-
-gen_lv2:
-	$(MAKE) -C libs/lv2-ttl-generator
-	@./scripts/generate-cabbage-lv2.sh
-	@./scripts/generate-ttl.sh
-
-gen_vst:
-	@./scripts/generate-cabbage-vst.sh
 
 # -----------------------------------------
 # clean
@@ -106,7 +93,7 @@ lv2:
 	$(MAKE) -C libs/juced
 	$(MAKE) -C libs/lv2-ttl-generator
 	$(MAKE) -C ports lv2
-	$(MAKE) gen_lv2
+	#$(MAKE) gen_lv2
 
 lv2_nogen:
 	$(MAKE) -C libs/drowaudio
