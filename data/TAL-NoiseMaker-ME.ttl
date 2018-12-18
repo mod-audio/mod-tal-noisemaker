@@ -840,4 +840,18 @@
     ] ;
 
     doap:name "Noise Maker - ME" ;
-    doap:maintainer [ foaf:name "TAL-Togu Audio Line" ] .
+   
+		doap:developer [
+            foaf:name "TAL-Togu Audio Line" ;
+            foaf:homepage <https://tal-software.com> ;
+        ] ;
+
+        doap:maintainer [
+            foaf:name "MOD Team" ;
+            foaf:homepage <http://moddevices.com> ;
+            foaf:mbox <mailto:devel@moddevices.com> ;
+        ] ;
+
+        mod:brand "TAL" ;
+        mod:label "TAL Noise Maker - ME" .
+ 
