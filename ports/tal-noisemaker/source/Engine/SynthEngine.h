@@ -370,7 +370,6 @@ public:
 	{
     value = value + 1; 
     //int intValue = audioUtils.calcComboBoxValue(value, PORTAMENTOMODE);
-    std::cout << "intvalue = " << value << std::endl;
     
     
     SynthVoice** voices = voiceManager->getAllVoices();
