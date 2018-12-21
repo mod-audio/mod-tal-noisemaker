@@ -10,7 +10,7 @@ MOD_TAL_NOISEMAKER_SITE = $($(PKG)_PKGDIR)/
 
 # even though this is a local build, we still need a version number
 # bump this number if you need to force a rebuild
-MOD_TAL_NOISEMAKER_VERSION = 1
+MOD_TAL_NOISEMAKER_VERSION = 1.1
 
 # dependencies (list of other buildroot packages, separated by space)
 MOD_TAL_NOISEMAKER_DEPENDENCIES =
