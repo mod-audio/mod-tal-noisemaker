@@ -174,3 +174,8 @@
     rdfs:label "Wha Wha Wha" ;
     rdfs:seeAlso <presets.ttl> .
 
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset024>
+    a pset:Preset ;
+    lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
+    rdfs:label "default_start_up" ;
+    rdfs:seeAlso <presets.ttl> .
