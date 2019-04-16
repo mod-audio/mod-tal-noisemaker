@@ -4193,7 +4193,7 @@ rdfs:label "Clean Bleeps" ;
 
 
 <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset024> a pset:Preset ;
-	rdfs:label "default_start_up" ;
+	rdfs:label "Default" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
 		pset:value 0.0
