@@ -24,6 +24,11 @@
 #if !defined(__AudioUtils_h)
 #define __AudioUtils_h
 
+
+#ifndef PMAX_VOICES
+#define PMAX_VOICES 4
+#endif
+
 #include "math.h"
 #include "Params.h"
 
@@ -296,7 +301,7 @@ public:
 
         switch(param)
         {
-        case VOICES: numItems = 4; break;
+        case VOICES: numItems = MAX_VOICES; break;
         case PORTAMENTOMODE: numItems = 3; break;
         case LFO1DESTINATION: numItems = 8; break;
         case LFO2DESTINATION: numItems = 8; break;

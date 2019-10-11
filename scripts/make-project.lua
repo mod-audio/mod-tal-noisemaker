@@ -25,9 +25,9 @@ function make_library_project(name)
   package.config["Release"].defines      = { "NDEBUG=1" }
   package.config["Release"].buildoptions = { "-O3", "-fvisibility=hidden", "-fvisibility-inlines-hidden" }
 
-  if (not (os.getenv("NOOPTIMIZATIONS") or os.getenv("LINUX_EMBED"))) then
-    package.config["Release"].buildoptions = {
-        package.config["Release"].buildoptions,
+  if (not (os.getenv("nooptimizations") or os.getenv("linux_embed"))) then
+    package.config["release"].buildoptions = {
+        package.config["release"].buildoptions,
         "-mtune=generic", "-msse", "-msse2"
     }
   end
@@ -145,6 +145,9 @@ function make_plugin_project(name, spec)
 
   if (os.getenv("LINUX_EMBED")) then
     package.buildoptions = { package.buildoptions, "-DJUCE_AUDIOPROCESSOR_NO_GUI=1" }
+    if (os.getenv("DUOX")) then
+        package.buildoptions = { package.buildoptions, "-DPMAX_VOICES=16" }
+    end
   end
 
   return package

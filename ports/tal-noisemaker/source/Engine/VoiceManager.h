@@ -24,8 +24,13 @@
 #ifndef VoiceManager_H
 #define VoiceManager_H
 
+#ifndef PMAX_VOICES
+#define PMAX_VOICES 4
+#endif
+
 #include <vector>
 using namespace std;
+
 
 class VoiceManager
 {
@@ -37,7 +42,7 @@ private:
 	vector<int> monoNoteStack;
 
 public:
-	const static int MAX_VOICES = 4;
+	const static int MAX_VOICES = PMAX_VOICES;
 
 	VoiceManager(
         float sampleRate,
