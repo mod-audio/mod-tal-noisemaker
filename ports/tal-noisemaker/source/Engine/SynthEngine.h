@@ -131,10 +131,9 @@ public:
 		initialize(sampleRate);
 	}
 
-	void setNumberOfVoices(int numberOfVoices)
+	void setNumberOfVoices(float numberOfVoices)
 	{
-		//std::cout << "numberOfVoices in setNumber = " << numberOfVoices << std::endl;
-		this->voiceManager->setNumberOfVoices(numberOfVoices);
+		this->voiceManager->setNumberOfVoices(audioUtils.calcComboBoxValue(numberOfVoices, VOICES));
 	}
 
 	void setNoteOn(int note, float velocity)
