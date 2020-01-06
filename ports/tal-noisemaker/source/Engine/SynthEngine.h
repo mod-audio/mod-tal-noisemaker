@@ -133,7 +133,8 @@ public:
 
 	void setNumberOfVoices(float numberOfVoices)
 	{
-		this->voiceManager->setNumberOfVoices(audioUtils.calcComboBoxValue(numberOfVoices, VOICES));
+        	int n_voices = (int)floorf(numberOfVoices * (PMAX_VOICES - 1.0f) + 1.0f + 0.5f);
+		this->voiceManager->setNumberOfVoices(n_voices);
 	}
 
 	void setNoteOn(int note, float velocity)
@@ -471,13 +472,13 @@ public:
 		}
 	}
 
-	void setFreeAdDestination(int value)
+	void setFreeAdDestination(float value)
 	{
-        //int intValue = audioUtils.calcComboBoxValue(value, FREEADDESTINATION);
+        int intValue = audioUtils.calcComboBoxValue(value, FREEADDESTINATION);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
-			voices[i]->setFreeAdDestination(value);
+			voices[i]->setFreeAdDestination(intValue);
 		}
 	}
 

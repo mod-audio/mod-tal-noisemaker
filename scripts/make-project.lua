@@ -26,8 +26,8 @@ function make_library_project(name)
   package.config["Release"].buildoptions = { "-O3", "-fvisibility=hidden", "-fvisibility-inlines-hidden" }
 
   if (not (os.getenv("NOOPTIMIZATIONS") or os.getenv("LINUX_EMBED"))) then
-    package.config["release"].buildoptions = {
-        package.config["release"].buildoptions,
+    package.config["Release"].buildoptions = {
+        package.config["Release"].buildoptions,
         "-mtune=generic", "-msse", "-msse2"
     }
   end
