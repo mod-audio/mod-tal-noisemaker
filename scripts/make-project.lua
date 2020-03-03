@@ -146,7 +146,7 @@ function make_plugin_project(name, spec)
   if (os.getenv("LINUX_EMBED")) then
     package.buildoptions = { package.buildoptions, "-DJUCE_AUDIOPROCESSOR_NO_GUI=1" }
     if (os.getenv("DUOX")) then
-        package.buildoptions = { package.buildoptions, "-DPMAX_VOICES=16" }
+        package.buildoptions = { package.buildoptions, "-DPMAX_VOICES=10" }
     end
   end
 
