@@ -133,10 +133,10 @@ public:
 
 	void setNumberOfVoices(float numberOfVoices)
 	{
-        numberOfVoices *= 0.25;
-        int n_voices = (int)floorf(numberOfVoices * (PMAX_VOICES - 1.0f) + 1.0f + 0.5f);
+        float scaled_voices = numberOfVoices * 0.249;
+        int n_voices = (int)floorf(scaled_voices * (PMAX_VOICES - 1.0f) + 1.0f + 0.5f);
 
-        if (numberOfVoices == 0.25) {
+        if (numberOfVoices == 1.0) {
             n_voices = 1;
         }
 
