@@ -42,20 +42,20 @@ class SynthEngine
 private:
     float sampleRate;
 
-	float volume;
-	float cutoff;
+    float volume;
+    float cutoff;
 
-  ScopedPointer<VoiceManager> voiceManager;
-  ScopedPointer<ParamChangeUtil> cutoffFiltered;
-  ScopedPointer<LfoHandler1> lfoHandler1;
-  ScopedPointer<LfoHandler2> lfoHandler2;
-  ScopedPointer<PitchwheelHandler> pitchwheelHandler;
-  ScopedPointer<VelocityHandler> velocityHandler;
-  ScopedPointer<HighPass> highPass;
-  ScopedPointer<StereoPan> stereoPan;
-  ScopedPointer<OscNoise> denormalNoise;
+    ScopedPointer<VoiceManager> voiceManager;
+    ScopedPointer<ParamChangeUtil> cutoffFiltered;
+    ScopedPointer<LfoHandler1> lfoHandler1;
+    ScopedPointer<LfoHandler2> lfoHandler2;
+    ScopedPointer<PitchwheelHandler> pitchwheelHandler;
+    ScopedPointer<VelocityHandler> velocityHandler;
+    ScopedPointer<HighPass> highPass;
+    ScopedPointer<StereoPan> stereoPan;
+    ScopedPointer<OscNoise> denormalNoise;
 
-	AudioUtils audioUtils;
+    AudioUtils audioUtils;
 
 public:
 	SynthEngine(float sampleRate)
