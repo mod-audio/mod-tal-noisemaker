@@ -133,7 +133,13 @@ public:
 
 	void setNumberOfVoices(float numberOfVoices)
 	{
-        	int n_voices = (int)floorf(numberOfVoices * (PMAX_VOICES - 1.0f) + 1.0f + 0.5f);
+        numberOfVoices *= 0.25;
+        int n_voices = (int)floorf(numberOfVoices * (PMAX_VOICES - 1.0f) + 1.0f + 0.5f);
+
+        if (numberOfVoices == 0.25) {
+            n_voices = 1;
+        }
+
 		this->voiceManager->setNumberOfVoices(n_voices);
 	}
 
