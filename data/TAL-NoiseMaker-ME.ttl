@@ -759,7 +759,7 @@
         lv2:portProperty lv2:enumeration, lv2:integer;
         lv2:scalePoint
         [
-            rdfs:label "1 Voice";
+            rdfs:label "Mono";
             rdf:value 1;
         ],
         [
