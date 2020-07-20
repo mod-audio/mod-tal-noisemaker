@@ -42,20 +42,20 @@ class SynthEngine
 private:
     float sampleRate;
 
-	float volume;
-	float cutoff;
+    float volume;
+    float cutoff;
 
-  ScopedPointer<VoiceManager> voiceManager;
-  ScopedPointer<ParamChangeUtil> cutoffFiltered;
-  ScopedPointer<LfoHandler1> lfoHandler1;
-  ScopedPointer<LfoHandler2> lfoHandler2;
-  ScopedPointer<PitchwheelHandler> pitchwheelHandler;
-  ScopedPointer<VelocityHandler> velocityHandler;
-  ScopedPointer<HighPass> highPass;
-  ScopedPointer<StereoPan> stereoPan;
-  ScopedPointer<OscNoise> denormalNoise;
+    ScopedPointer<VoiceManager> voiceManager;
+    ScopedPointer<ParamChangeUtil> cutoffFiltered;
+    ScopedPointer<LfoHandler1> lfoHandler1;
+    ScopedPointer<LfoHandler2> lfoHandler2;
+    ScopedPointer<PitchwheelHandler> pitchwheelHandler;
+    ScopedPointer<VelocityHandler> velocityHandler;
+    ScopedPointer<HighPass> highPass;
+    ScopedPointer<StereoPan> stereoPan;
+    ScopedPointer<OscNoise> denormalNoise;
 
-	AudioUtils audioUtils;
+    AudioUtils audioUtils;
 
 public:
 	SynthEngine(float sampleRate)
@@ -131,10 +131,16 @@ public:
 		initialize(sampleRate);
 	}
 
-	void setNumberOfVoices(int numberOfVoices)
+	void setNumberOfVoices(float numberOfVoices)
 	{
-		//std::cout << "numberOfVoices in setNumber = " << numberOfVoices << std::endl;
-		this->voiceManager->setNumberOfVoices(numberOfVoices);
+        float scaled_voices = numberOfVoices * 0.249;
+        int n_voices = (int)floorf(scaled_voices * (PMAX_VOICES - 1.0f) + 1.0f + 0.5f);
+
+        if (numberOfVoices == 1.0) {
+            n_voices = 1;
+        }
+
+		this->voiceManager->setNumberOfVoices(n_voices);
 	}
 
 	void setNoteOn(int note, float velocity)
@@ -472,13 +478,13 @@ public:
 		}
 	}
 
-	void setFreeAdDestination(int value)
+	void setFreeAdDestination(float value)
 	{
-        //int intValue = audioUtils.calcComboBoxValue(value, FREEADDESTINATION);
+        int intValue = audioUtils.calcComboBoxValue(value, FREEADDESTINATION);
 		SynthVoice** voices = voiceManager->getAllVoices();
 		for (int i = 0; i < voiceManager->MAX_VOICES; i++)
 		{
-			voices[i]->setFreeAdDestination(value);
+			voices[i]->setFreeAdDestination(intValue);
 		}
 	}
 

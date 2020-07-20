@@ -759,19 +759,19 @@
         lv2:portProperty lv2:enumeration, lv2:integer;
         lv2:scalePoint
         [
-            rdfs:label "1";
+            rdfs:label "Mono";
             rdf:value 1;
         ],
         [
-            rdfs:label "2";
+            rdfs:label "50%";
             rdf:value 2;
         ],
         [
-            rdfs:label "3";
+            rdfs:label "75%";
             rdf:value 3;
         ],
         [
-            rdfs:label "4";
+            rdfs:label "All Voices";
             rdf:value 4;
         ];
     ] ,

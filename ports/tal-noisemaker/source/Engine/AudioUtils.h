@@ -24,6 +24,11 @@
 #if !defined(__AudioUtils_h)
 #define __AudioUtils_h
 
+
+#ifndef PMAX_VOICES
+#define PMAX_VOICES 4
+#endif
+
 #include "math.h"
 #include "Params.h"
 
