@@ -267,7 +267,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.013393
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 1.0
@@ -428,7 +428,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.27901801
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.0
@@ -449,7 +449,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.05692
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.0
@@ -631,7 +631,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.05692
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.0
@@ -792,7 +792,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.49330401
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.61495501
@@ -813,7 +813,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.29464301
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.57477701
@@ -995,7 +995,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.011161
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.0
@@ -1156,7 +1156,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.77120501
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.90625
@@ -1177,7 +1177,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.5
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.0
@@ -1338,7 +1338,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 5.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.084821
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.515625
@@ -1359,7 +1359,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.97433001
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.30245501
@@ -1541,7 +1541,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.011161
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.0
@@ -1702,7 +1702,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.49330401
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.0
@@ -1723,7 +1723,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.29464301
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.36830401
@@ -1905,7 +1905,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.05692
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.0
@@ -2087,7 +2087,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.011161
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.0
@@ -2248,7 +2248,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 5.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.99218798
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 1.0
@@ -2269,7 +2269,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 6.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.49776801
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.171875
@@ -2612,7 +2612,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.21875
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.016741
@@ -2794,7 +2794,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.21875
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.0
@@ -2976,7 +2976,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.49330401
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.0
@@ -2997,7 +2997,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.29464301
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.0
@@ -3158,7 +3158,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.165179
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.52790201
@@ -3179,7 +3179,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.76674098
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.203125
@@ -3340,7 +3340,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.006696
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.59486598
@@ -3522,7 +3522,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 5.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.06808
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.515625
@@ -3543,7 +3543,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.38058001
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.64955401
@@ -3886,7 +3886,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 5.0
 	] , [
 		lv2:symbol "lfo1keytrigger" ;
-		pset:value 0.06808
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo1phase" ;
 		pset:value 0.515625
@@ -3907,7 +3907,7 @@ rdfs:label "Clean Bleeps" ;
 		pset:value 4.0
 	] , [
 		lv2:symbol "lfo2keytrigger" ;
-		pset:value 0.38058001
+		pset:value 1.0
 	] , [
 		lv2:symbol "lfo2phase" ;
 		pset:value 0.64955401
