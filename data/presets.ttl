@@ -54731,7 +54731,7 @@
 
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset257> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset077> a pset:Preset ;
 rdfs:label "FX Clean Bleeps" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -54913,7 +54913,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset258> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset078> a pset:Preset ;
 	rdfs:label "KB Clean Pulse" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -55095,7 +55095,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset259> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset079> a pset:Preset ;
 	rdfs:label "KB Detroit Organ" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -55277,7 +55277,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset260> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset080> a pset:Preset ;
 	rdfs:label "BS FM Mod" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -55459,7 +55459,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset261> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset081> a pset:Preset ;
 	rdfs:label "FX Ghost Pulse" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -55641,7 +55641,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset262> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset082> a pset:Preset ;
 	rdfs:label "FX LFO Ring Mod" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -55823,7 +55823,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset263> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset083> a pset:Preset ;
 	rdfs:label "FX LFO Slope" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -56005,7 +56005,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset264> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset084> a pset:Preset ;
 	rdfs:label "FX Mod Siren" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -56187,7 +56187,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset265> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset085> a pset:Preset ;
 	rdfs:label "FX Panned Bell" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -56369,7 +56369,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset266> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset086> a pset:Preset ;
 	rdfs:label "FX Poly Bubble" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -56551,7 +56551,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset267> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset087> a pset:Preset ;
 	rdfs:label "FX Pulse Acid" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -56733,7 +56733,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset268> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset088> a pset:Preset ;
 	rdfs:label "FX Res Sine" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -56915,7 +56915,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset269> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset089> a pset:Preset ;
 	rdfs:label "LD Saw Slide" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -57097,7 +57097,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset270> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset090> a pset:Preset ;
 	rdfs:label "FX Slope FM" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -57279,7 +57279,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset271> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset091> a pset:Preset ;
 	rdfs:label "FX Slope Sine" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -57461,8 +57461,8 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset272> a pset:Preset ;
-	rdfs:label "DR Space Drum" ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset092> a pset:Preset ;
+	rdfs:label "FX Space Drum" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
 		pset:value 0.285714
@@ -57643,7 +57643,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset273> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset093> a pset:Preset ;
 	rdfs:label "FX Spooky Grime" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -57825,7 +57825,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset274> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset094> a pset:Preset ;
 	rdfs:label "FX Sub Acid" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -58007,7 +58007,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset275> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset095> a pset:Preset ;
 	rdfs:label "FX Velocity Res" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -58189,7 +58189,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset276> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset096> a pset:Preset ;
 	rdfs:label "FX Velocity Sub" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -58371,7 +58371,7 @@ rdfs:label "FX Clean Bleeps" ;
 	] .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset277> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset097> a pset:Preset ;
 	rdfs:label "FX Velo Sine" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
@@ -58552,8 +58552,7 @@ rdfs:label "FX Clean Bleeps" ;
 		pset:value 0.30
 	] .
 
-
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset278> a pset:Preset ;
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset098> a pset:Preset ;
 	rdfs:label "FX Wha Wha Wha" ;
 	lv2:port [
 		lv2:symbol "ampattack" ;
