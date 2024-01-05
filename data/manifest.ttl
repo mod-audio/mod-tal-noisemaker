@@ -1,22 +1,35 @@
 @prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
 @prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
+
 
 
 <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker>
 
     a lv2:Plugin ;
+
     lv2:binary <TAL-NoiseMaker-ME.so> ;
+
     rdfs:seeAlso <TAL-NoiseMaker-ME.ttl> .
 
+
+
 <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> rdfs:seeAlso <modgui.ttl> .
+
+
 
 <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#ExternalUI>
 
     a <http://kxstudio.sf.net/ns/lv2ext/external-ui#Widget> ;
+
     ui:binary <TAL-NoiseMaker-ME.so> ;
+
     lv2:requiredFeature <http://lv2plug.in/ns/ext/instance-access> ;
+
     lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#UIInterface> .
 
 
@@ -1404,149 +1417,149 @@
     rdfs:label "PD Twoflower FN" ;
     rdfs:seeAlso <presets.ttl> .
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset257>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset077>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Clean Bleeps" ;
     rdfs:seeAlso <presets.ttl> .
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset258>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset078>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "KB Clean Pulse" ;
     rdfs:seeAlso <presets.ttl> .
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset259>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset079>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "KB Detroit Organ" ;
     rdfs:seeAlso <presets.ttl> .
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset260>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset080>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "BS FM Mod" ;
     rdfs:seeAlso <presets.ttl> .
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset261>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset081>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Ghost Pulse" ;
     rdfs:seeAlso <presets.ttl> .
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset262>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset082>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX LFO Ring Mod" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset263>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset083>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX LFO Slope" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset264>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset084>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Mod Siren" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset265>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset085>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Panned Bell" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset266>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset086>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Poly Bubble" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset267>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset087>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Pulse Acid" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset268>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset088>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Res Sine" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset269>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset089>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "LD Saw Slide" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset270>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset090>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Slope FM" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset271>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset091>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Slope Sine" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset272>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset092>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
-    rdfs:label "DR Space Drum" ;
+    rdfs:label "FX Space Drum" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset273>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset093>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Spooky Grime" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset274>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset094>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Sub Acid" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset275>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset095>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Velocity Res" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset276>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset096>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Velocity Sub" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset277>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset097>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Velo Sine" ;
     rdfs:seeAlso <presets.ttl> .
 
 
-<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset278>
+<http://www.moddevices.com/plugins/mod_editions/tal-noisemaker#preset098>
     a pset:Preset ;
     lv2:appliesTo <http://www.moddevices.com/plugins/mod_editions/tal-noisemaker> ;
     rdfs:label "FX Wha Wha Wha" ;
